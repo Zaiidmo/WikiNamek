@@ -22,10 +22,10 @@ module.exports = {
         poppins: ["Poppins", "sans-serif"],
       },
       colors :{
-        'primary' :{
-          100: '#0D4B33',
-          200: '#052519'
-        } ,
+        // 'primary' :{
+        //   100: '#0D4B33',
+        //   200: '#052519'
+        // } ,
         'orange' : '#FB6109',
 
       }

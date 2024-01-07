@@ -21,12 +21,12 @@ class Router
             $controller = ucwords($uri[1] ) . 'Controller';
             unset($uri[1]);
             $controller = "App\Controller\\" . $controller;
-            if (class_exists($controller)) {
-                $this->controller = $controller;
-            } else {
-                include '../app/View/error404.php';
-                exit;
-            }
+            // if (class_exists($controller)) {
+            //     $this->controller = $controller;
+            // } else {
+            //     include '../app/View/error404.php';
+            //     exit;
+            // }
         }
 
         $objetController = new $this->controller;

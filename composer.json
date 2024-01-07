@@ -2,8 +2,10 @@
     "name": "zaiid/wiki-namek",
     "autoload": {
         "psr-4": {
-            "Zaiid\\WikiNamek\\": "src/"
-        }
+            "App\\" : "app/",
+            "router\\" : "router/",
+            "config\\" : "database/"       
+         }
     },
     "authors": [
         {

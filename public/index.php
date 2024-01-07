@@ -1,5 +1,5 @@
 <?php 
-define('URL_DIR', 'http://localhost/StadiumStream/');
+define('URL_DIR', 'http://localhost/Wikinamek/');
 require "../vendor/autoload.php";
 require "../router/Router.php";
 
