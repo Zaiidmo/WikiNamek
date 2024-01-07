@@ -23,7 +23,7 @@
                 <img src="<?= URL_DIR ?>public/assets/images/Hero_image.jpg" alt="wikiNamek">
             </div>
             <div class="mr-auto place-self-center text-center lg:col-span-7">
-                <h1 class="max-w-2xl mb-4 text-4xl font-bold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white">Welcome To WikiNamek</h1>
+                <h1 class="max-w-2xl mb-4 text-4xl  tracking-tight font-salsa leading-none md:text-5xl xl:text-6xl dark:text-white">Welcome To WikiNamek</h1>
                 <p class="max-w-2xl mb-6 font-light text-gray-700 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">your digital haven for boundless knowledge. Immerse yourself in a world of discovery, where curiosity knows no bounds. Explore meticulously
                     curated articles, unravel fascinating insights, and embark on a journey of continuous learning. At Wikinamek, we believe in the power of shared
                     wisdom to inspire and enlighten. Join our community, and let the adventure of knowledge unfold before your eyes."</p>
@@ -44,7 +44,7 @@
     <section class="bg-white dark:bg-gray-800">
         <div class="py-8 px-4 mx-auto max-w-screen-xl lg:px-6 ">
             <div class="mx-auto max-w-screen-sm text-center mb-8 lg:mb-16">
-                <h2 class="mb-4 text-4xl tracking-wider font-bold text-gray-900 dark:text-white">Explore the last posted Wikis</h2>
+                <h2 class="mb-4 text-4xl tracking-wider font-salsa font-bold text-gray-900 dark:text-white">Explore the last posted Wikis</h2>
                 <!-- <p class="font-light text-gray-500 lg:mb-16 sm:text-xl dark:text-gray-400">Explore the whole collection of open-source web components and elements built with the utility classes from Tailwind</p> -->
             </div>
             <div class="grid gap-8 mb-6 lg:mb-16 md:grid-cols-2 lg:grid-cols-3">
