@@ -20,7 +20,7 @@
     <section class="bg-white dark:bg-gray-900 pt-24">
         <div class="gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:flex lg:flex-col lg:py-16 lg:px-6">
             <div class="font-light text-center sm:text-lg dark:text-gray-400">
-                <h2 class="mb-8 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">Here goes the title</h2>
+                <h2 class="mb-8 text-4xl tracking-wider font-salsa font-extrabold text-gray-900 dark:text-white">Here goes the title</h2>
                 <p class="text-black dark:text-gray-500 "> Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description </p>
                 <p class="mt-8 text-left text-gray-500 dark:text-gray-700 mb-4">by : Zaiid @at ...</p>
             </div>
