@@ -32,10 +32,10 @@
                     <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
                         Get Started For Free
                     </h1>
-                    <form class="flex flex-col space-y-4 md:space-y-6" action="#">
+                    <form class="flex flex-col space-y-4 md:space-y-6" action="signup/register" method="POST">
                         <div>
                             <label for="Full-Name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your Full Name</label>
-                            <input type="name" name="name" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@company.com" required="">
+                            <input type="name" name="fullname" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@company.com" required="">
                         </div>
                         <div>
                             <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
@@ -47,19 +47,20 @@
                         </div>
                         <div>
                             <label for="Confirm-Password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Confirm Password</label>
-                            <input type="password" name="confirm-password" id="confirm-password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="">
+                            <input type="password" name="confirm_password" id="confirm-password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="">
                         </div>
 
                         <div class="flex flex-row w-full justify-evenly">
-                            <div class="flex items-center px-4 ps-4 border border-gray-200 rounded dark:border-gray-700">
-                                <input id=author" type="radio" value="" name="author" class="w-fit h-4 text-black bg-gray-100 border-gray-300 focus:ring-black dark:focus:ring-black dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                <label for=author" class="w-full py-4 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">I am an Author</label>
+                            <div class="flex items-center ps-4 px-4 border border-gray-200 rounded dark:border-gray-700">
+                                <input id="author" type="radio" value="author" name="userType" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                <label for="author" class="w-full py-4 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">I'm an Author</label>
                             </div>
-                            <div class="flex items-center px-4 ps-4 border border-gray-200 rounded dark:border-gray-700">
-                                <input id="reader" type="radio" value="" name="reader" class="w-fit h-4 text-black bg-gray-100 border-gray-300 focus:ring-black dark:focus:ring-black dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                <label for="reader" class="w-full py-4 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">I am a Reader</label>
+                            <div class="flex items-center ps-4 px-4 border border-gray-200 rounded dark:border-gray-700">
+                                <input checked id="reader" type="radio" value="reader" name="userType" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                <label for="reader" class="w-full py-4 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">I'm a Reader</label>
                             </div>
                         </div>
+
 
 
                         <div class="flex items-start">
