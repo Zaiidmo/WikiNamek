@@ -8,11 +8,11 @@ class SignupController
 {
     public function index()
     {
-        // if (session_status() == PHP_SESSION_NONE) {
-        //     session_start();
-        // }
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
         if (isset($_SESSION['id'])) {
-            $redirect = URL_DIR . 'profile';
+            $redirect = URL_DIR . 'home';
             header("Location: $redirect");
         } else {
             Controller::getView("signup");
