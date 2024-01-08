@@ -6,6 +6,6 @@ class SinglepageController
 {
     public function index()
     {
-        include '../app/View/singlepage.php';
+        Controller::getView("singlepage");
     }
 }

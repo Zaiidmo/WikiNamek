@@ -6,6 +6,6 @@ class HomeController
 {
     public function index()
     {
-        include '../app/View/home.php';
+        Controller::getView("home");
     }
 }

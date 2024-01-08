@@ -6,6 +6,6 @@ class DashboardController
 {
     public function index()
     {
-        include '../app/View/dashboard.php';
+        Controller::getView("dashboard");
     }
 }

@@ -6,6 +6,6 @@ class WikisController
 {
     public function index()
     {
-        include '../app/View/wikis.php';
+        Controller::getView("wikis");
     }
 }
