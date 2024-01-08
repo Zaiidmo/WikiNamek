@@ -6,7 +6,6 @@ class CategoriesController
 {
     public function index()
     {
-        
         Controller::getView("categories");
     }
 }
