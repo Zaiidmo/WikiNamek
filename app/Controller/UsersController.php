@@ -3,17 +3,27 @@
 namespace App\Controller;
 
 use App\Model\Permissions;
+use App\Model\UserModel;
 
 class UsersController
 {
     public function index()
     {
-        $users_permission = new Permissions();
-        $role = $users_permission->Check();
+        $usersPermission = new Permissions();
+        $role = $usersPermission->Check();
+    
         if ($role == 'admin') {
-            Controller::getView("users");
+            $userModel = new UserModel();
+            $users = $userModel->getUsers();
+    
+            Controller::getView("users", ['users' => $users]);
         } else {
             Controller::getView("error404");
         }
     }
+
+    public function delete(){
+        
+    }
+    
 }

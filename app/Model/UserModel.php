@@ -7,7 +7,7 @@ use PDOException;
 
 class UserModel extends Crud
 {
-    public function displayusers()
+    public function getUsers()
     {
         return $this->read('user');
     }
