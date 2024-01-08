@@ -10,6 +10,10 @@
     <meta name="description" content="WikiNamek .. Your Gateway to infinit Insights">
     <link rel="stylesheet" href="public/assets/dist/output.css">
     <link rel="shortcut icon" href="<?= URL_DIR ?>public/assets/images/favicon.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Salsa&display=swap" rel="stylesheet">
 </head>
 
 <body class="bg-gray-300 dark:bg-gray-900 text-gray-900 font-poppins">
