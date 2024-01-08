@@ -8,21 +8,25 @@
     <link rel="stylesheet" href="public/assets/dist/output.css">
 </head>
 
-<body class="bg-gray-300 dark:bg-gray-900">
+<body class="bg-gray-300 dark:bg-gray-900 text-gray-900 font-poppins">
+    <?php
+    include "../app/View/includes/navbar.php";
+    ?>
+    <!-- Dashboard Content -->
 
-    <main id="main" class="mt-32 h-screen px-28">
-        <h2 class="my-6 text-4xl font-semibold text-center font-poppins tracking-widest text-gray-700 dark:text-gray-200">
-            <span class="text-primary-100 dark:text-orange">Available</span> Categories
+    <main id="main" class="pt-36 h-screen px-28">
+        <h2 class=" text-4xl font-semibold text-center font-poppins tracking-widest text-gray-700 dark:text-gray-200">
+            <span class="text-black dark:text-gray-400">Available</span> Categories
         </h2>
         <div class="w-full overflow-hidden rounded-lg shadow-xs">
             <div class="w-full overflow-x-auto">
-                <table class="w-full whitespace-no-wrap">
+                <table class="w-full rounded-lg whitespace-no-wrap">
                     <thead>
                         <tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
                             <th class="px-4 py-3">Category Name</th>
-                            <th class="px-4 py-3">N of Wikis</th>
-                            <!-- <th class="px-4 py-3">Phone Number</th>
-                            <th class="px-4 py-3">Purshased Tickets</th> -->
+                            <th class="px-4 py-3">N-- Of Wikis</th>
+                            <!-- <th class="px-4 py-3">Type</th> -->
+                            <!-- <th class="px-4 py-3">Purshased Tickets</th> -->
                             <!-- <th class="px-4 py-3"></th> -->
                             <th class="px-4 py-3">Actions</th>
                         </tr>
@@ -39,28 +43,29 @@
                                         </div>
                                         <div>
                                             <p class="font-semibold"><?= $user['full_name'] ?></p>
+                                            <p class="text-xs text-gray-600     :text-gray-400">
+                                                10x Developer
+                                            </p>
                                         </div>
                                     </div>
                                 </td>
                                 <td class="px-4 py-3 text-sm">
                                     <?= $user['email'] ?>
                                 </td>
-                                <!-- <td class="px-4 py-3 text-sm">
-                                    <?= $user['phone_number'] ?>
-                                </td>
+
                                 <td class="px-4 py-3 text-xs">
                                     <span class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100">
                                         Approved
                                     </span>
-                                </td> -->
+                                </td>
                                 <td class="px-4 py-3">
                                     <div class="flex items-center space-x-4 text-sm">
                                         <!-- <a href="users/displayedituser/<?= $user['id'] ?>"> -->
-                                            <button data-user_Id="<?= $user['id'] ?>" class=" edituser flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray" aria-label="Edit">
-                                                <svg class="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
-                                                    <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"></path>
-                                                </svg>
-                                            </button>
+                                        <button data-user_Id="<?= $user['id'] ?>" class=" edituser flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray" aria-label="Edit">
+                                            <svg class="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
+                                                <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"></path>
+                                            </svg>
+                                        </button>
                                         <!-- </a> -->
                                         <a href="users/delete/<?= $user['id'] ?>">
                                             <button onclick="confirmDelete()" class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray" aria-label="Delete">
@@ -76,13 +81,17 @@
                     </tbody>
                 </table>
             </div>
-            
+
         </div>
     </main>
+
+    <!-- Footer -->
     <?php include "../app/View/includes/footer.php"; ?>
 
+
+
 </body>
-<script src="public/assets/js/navigation.js"></script>
+<script src="public/assets/js/dashboard.js"></script>
 <script src="public/assets/js/theme.js"></script>
 
 </html>
