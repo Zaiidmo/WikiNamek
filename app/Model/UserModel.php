@@ -2,6 +2,7 @@
 
 namespace App\Model;
 
+use PDO;
 use PDOException;
 
 class UserModel extends Crud
@@ -16,15 +17,15 @@ class UserModel extends Crud
             //insert data into user table
             $userCreated = $this->create('user', $userData) !== false;
             // if ($userCreated) {
-                //retrieve the userID
-                // $userID = $this->pdo->lastInsertId();
-                // //insert data into user_role table
-                // $userRoleData = [
-                //     'user_id' => $userID,
-                //     'role_id' => 1
-                // ];
-                // $userRoleCreated = $this->create('user_role', $userRoleData) !== false;
-                return $userCreated;
+            //retrieve the userID
+            // $userID = $this->pdo->lastInsertId();
+            // //insert data into user_role table
+            // $userRoleData = [
+            //     'user_id' => $userID,
+            //     'role_id' => 1
+            // ];
+            // $userRoleCreated = $this->create('user_role', $userRoleData) !== false;
+            return $userCreated;
             // } else {
             //     return false;
             // }
@@ -33,7 +34,15 @@ class UserModel extends Crud
             return false;
         }
     }
-    public function login(){
-        
+    public function login($email)
+    {
+        try {
+            $stmt = $this->pdo->prepare("SELECT * FROM user WHERE email = :email");
+            $stmt->execute([':email' => $email]);
+            return $stmt->fetch(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            echo 'Database Error: ' . $e->getMessage();
+            exit();
+        }
     }
 }

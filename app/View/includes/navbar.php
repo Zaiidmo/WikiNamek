@@ -1,4 +1,6 @@
-<!-- <?php session_start() ?> -->
+<?php if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+} ?>
 <header class="z-40 fixed w-screen py-4 flex bg-black shadow-md dark:bg-gray-800">
     <nav class="container mx-auto w-full flex justify-between items-center h-full px-6 text-gray-600 dark:text-gray-300">
         <div class="flex justify-evenly">
@@ -28,9 +30,8 @@
         <div id="right-side" class="flex justify-evenly">
             <ul class="flex items-center flex-shrink-0 space-x-6">
                 <!-- Profile menu -->
-                <?php //if (isset($_SESSION['id'])) : 
-                ?>
-                <!-- <li class="relative z-50">
+                <?php if (isset($_SESSION['id'])) : ?>
+                    <li class="relative z-50">
                         <button id="profile-menu-toggler" class="align-middle rounded-full focus:shadow-outline-purple focus:outline-none">
                             <img class="object-cover w-8 h-8 rounded-full" src="https://images.unsplash.com/photo-1502378735452-bc7d86632805?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&s=aa3a807e1bbdfd4364d1f449eaa96d82" alt="profile-picture" />
                         </button>
@@ -54,7 +55,7 @@
                                 </a>
                             </li>
                             <li class="flex">
-                                <form action="Signin/logout" method="POST" class="w-full">
+                                <form action="login/logout" method="POST" class="w-full">
                                     <button type="submit" name="logout" class="flex  w-full items-center px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200" href="logout">
                                         <svg class="w-4 h-4 mr-3" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
                                             <path d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1">
@@ -65,16 +66,13 @@
                                 </form>
                             </li>
                         </ul>
-
-                    </li> -->
-                <?php //else : 
-                ?>
-                <div id="navigation" class="hidden md:flex gap-3">
-                    <a href="login" class="text-white bg-transparent focus:ring-4 focus:outline-none font-medium rounded-2xl text-sm px-4 py-2 text-center border border-white-900 hover:text-black dark:hover:bg-gray-500">GET STARETD</a>
-                    <a href="contact" class="text-white bg-transparent focus:ring-4 focus:outline-none font-medium rounded-2xl text-sm px-4 py-2 text-center border border-white-900 hover:text-black dark:hover:bg-gray-500">CONTACT US</a>
-                </div>
-                <?php // endif 
-                ?>
+                    </li>
+                <?php else : ?>
+                    <div id="navigation" class="hidden md:flex gap-3">
+                        <a href="login" class="text-white bg-transparent focus:ring-4 focus:outline-none font-medium rounded-2xl text-sm px-4 py-2 text-center border border-white-900 hover:text-black dark:hover:bg-gray-500">GET STARETD</a>
+                        <a href="contact" class="text-white bg-transparent focus:ring-4 focus:outline-none font-medium rounded-2xl text-sm px-4 py-2 text-center border border-white-900 hover:text-black dark:hover:bg-gray-500">CONTACT US</a>
+                    </div>
+                <?php endif ?>
 
                 <!-- Theme toggler -->
                 <li class="flex">
