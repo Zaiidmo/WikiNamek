@@ -2,9 +2,10 @@
 
 namespace App\Controller;
 
-class SignupController {
+class UsersController
+{
     public function index()
     {
-        Controller::getView("signup");
+        Controller::getView("users");
     }
 }
