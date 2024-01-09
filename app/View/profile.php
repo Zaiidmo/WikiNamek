@@ -38,9 +38,9 @@
                         </div>
                     </div>
                     <div class="relative justify-center">
-                        
+
                         <div class="w-48 h-48 bg-indigo-100 mx-auto rounded-full shadow-2xl absolute inset-x-0 top-0 -mt-24 flex items-center justify-center dark:text-white text-indigo-500">
-                            <img src=<?= URL_DIR . "public/assets/uploads/" . $_SESSION['profile_picture'] ?> alt="profile">
+                            <img class="rounded-full" src=<?= URL_DIR . "public/assets/uploads/" . $_SESSION['profile_picture'] ?> alt="profile">
                         </div>
                     </div>
                     <div class="space-x-8 flex justify-between mt-32 md:mt-0 md:justify-center">
@@ -64,24 +64,40 @@
             </div>
         </div>
         <div id="History" class="p-16 pt-0 pl-24">
-            <div class="p-8 bg-white rounded-lg  dark:bg-gray-900 shadow ">
+            <div class="p-8 bg-white rounded-lg dark:bg-gray-900 shadow">
                 <h1 class="tracking-widest text-gray-800 mb-10 dark:text-white">My Already Posted Wikis</h1>
-                <div class="grid grid-cols-1 md:grid-cols-5 ">
-                    <div id="ticket" class="w-full md:w-80 rounded-xl mb-5 bg-white dark:bg-gray-800 shadow-2xl ">
-                        <div class="h-48 w-full rounded-t-xl flex flex-col justify-between p-4 bg-cover  bg-center" style="background-image: url('https://images.pexels.com/photos/1592384/pexels-photo-1592384.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')">
-                        </div>
-                        <div class="p-4 rounded-b-xl ">
-                            <div class="flex items-center justify-between">
-                                <h1 class="text-black dark:text-white font-medium">titan.jpg</h1> <button class="text-black dark:text-white"> <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
-                                    </svg> </button>
+                <div class="grid grid-cols-1 md:grid-cols-5">
+                    <?php foreach ($wikis as $wiki): ?>
+                        <div id="wiki" class="w-full md:w-80 rounded-xl mb-5 bg-white dark:bg-gray-800 shadow-2xl">
+                            <img src="public/assets/uploads/<?= $wikis['picture'] ?>" class="h-48 w-full rounded-t-xl flex flex-col justify-between p-4 bg-cover  bg-center">
+                            <div class="p-4 rounded-b-xl">
+                                <div class="flex items-center justify-between">
+                                    <h1 class="text-black dark:text-white font-medium"><?= $wikis['title'] ?></h1>
+                                    <button class="text-black dark:text-white">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
+                                        </svg>
+                                    </button>
+                                </div>
+                                <p class="text-black dark:text-white text-sm my-1"><?= $wikis['description'] ?></p>
+                                <?php if ($wikis['status'] == 'pending') : ?>
+                                    <span class="uppercase text-xs bg-gray-300 p-0.5 px-3 rounded-full border-black border text-black font-bold"><?= $wikis['status'] ?></span>
+                                <?php elseif ($wikis['status'] == 'approved') : ?>
+                                    <span class="uppercase text-xs bg-green-50 p-0.5 px-3 rounded-full border-green-500 border text-green-700 font-bold"><?= $wikis['status'] ?></span>
+                                <?php elseif ($wikis['status'] == 'denied') : ?>
+                                    <span class="uppercase text-xs bg-red-500 p-0.5 px-3 border-red-500 border rounded-full text-white font-bold"><?= $wikis['status'] ?></span>
+                                <?php elseif ($wikis['status'] == 'archived') : ?>
+                                    <span class="uppercase text-xs bg-blue-200 p-0.5 px-3 border-blue-500 border rounded-full text-black font-medium"><?= $wikis['status'] ?></span>
+                                <?php elseif ($wikis['status'] == 'deleted') : ?>
+                                    <span class="uppercase text-xs bg-black p-0.5 px-3 border-black border rounded-full text-white font-medium"><?= $wikis['status'] ?></span>
+                                <?php endif; ?>
                             </div>
-                            <p class="text-black dark:text-white text-sm my-1">Jack cooper</p> <span class="uppercase text-xs bg-green-50 p-0.5 border-green-500 border rounded text-green-700 font-medium">Approved</span>
                         </div>
-                    </div>
+                    <?php endforeach ?>
                 </div>
             </div>
         </div>
+
         <div id="modification-modal" class="modification_modal hidden overflow-y-auto overflow-x-hidden fixed w-1/2 rounded-xl border top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 z-100 justify-center items-center dark:bg-gray-700 overflow-auto bg-opacity-50">
             <div aria-hidden="true" class="flex flex-col justify-center px-2 py-12 lg:px-2 text-gray-900 dark:text-white">
                 <div class="sm:w-full sm:max-w-sm flex self-center justify-between items-center">

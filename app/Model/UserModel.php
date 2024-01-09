@@ -49,4 +49,9 @@ class UserModel extends Crud
         $tableName = 'user';
         $this->update($tableName, $data, $id);
     }
+
+    public function fetchWikis($id){
+        $myWikis = $this->getRecordById('wiki', $id);
+        return $myWikis;
+    }
 }

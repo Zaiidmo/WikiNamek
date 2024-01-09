@@ -14,7 +14,9 @@ class ProfileController
             session_start();
         }
         if (isset($_SESSION['id'])) {
-            Controller::getView('profile');
+            $userModel = new UserModel();
+            $data = $userModel->fetchWikis($_SESSION['id']);
+            Controller::getView('profile', ['wikis' => $data]);
         } else {
             Controller::getView('login');
         }
@@ -70,4 +72,5 @@ class ProfileController
         $_SESSION['profile_picture'] = $data['profile_picture'];
         header("Location: $redirect");
     }
+
 }
