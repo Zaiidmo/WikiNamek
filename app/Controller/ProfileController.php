@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+session_start();
+
 use App\Model\UserModel;
 
 class ProfileController
@@ -57,10 +59,10 @@ class ProfileController
         // var_dump($data);
 
         $userModel->update_profile($data, $id);
+        $redirect = URL_DIR . 'profile';
         $_SESSION['user_name'] = $data['user_name'];
         $_SESSION['email'] = $data['email'];
         $_SESSION['profile_picture'] = $data['profile_picture'];
-        Controller::getView('profile', ['data' => $_SESSION]);
-        
+        header("Location: $redirect");
     }
 }
