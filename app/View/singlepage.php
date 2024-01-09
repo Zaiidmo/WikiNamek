@@ -25,7 +25,7 @@
                 <p class="mt-8 text-left text-gray-500 dark:text-gray-700 mb-4">by : <?= $wiki['author_id'] ?> <br> at <?= $wiki['creation_date'] ?><p>
             </div>
             <div class="mt-2 self-center">
-                <img class=" rounded-lg" src="public/assets/uploads/<?= $wiki['picture'] ?>" alt="office content 1">
+                <img class=" rounded-lg" src="public/assets/uploads/<?= $wiki['picture'] ?>" alt="<?= $wiki['title']?>">
             </div>
             <div class="mt-2 text-black dark:text-gray-300">
                 <p class="mb-4"><?= $wiki['content'] ?>
