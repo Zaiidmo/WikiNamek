@@ -8,7 +8,7 @@ class WikisController extends Crud
 {
     public function index()
     {
-        
+    
         Controller::getView("wikis");
     }
     

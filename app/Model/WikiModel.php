@@ -31,4 +31,48 @@ class WikiModel extends Crud
             return [];
         }
     }
+    public function approveWiki($id)
+    {
+        try {
+            $query = "UPDATE wiki SET status = 'approved' WHERE id = $id";
+            $stmt = $this->pdo->query($query);
+            $stmt->execute();
+        } catch (PDOException $e) {
+            echo "Error fetching records: " . $e->getMessage();
+            return [];
+        }
+    }
+    public function denyWiki($id)
+    {
+        try {
+            $query = "UPDATE wiki SET status = 'denied' WHERE id = $id";
+            $stmt = $this->pdo->query($query);
+            $stmt->execute();
+        } catch (PDOException $e) {
+            echo "Error fetching records: " . $e->getMessage();
+            return [];
+        }
+    }
+    public function deleteWiki($id)
+    {
+        try {
+            $query = "UPDATE wiki SET status = 'deleted' WHERE id = $id";
+            $stmt = $this->pdo->query($query);
+            $stmt->execute();
+        } catch (PDOException $e) {
+            echo "Error fetching records: " . $e->getMessage();
+            return [];
+        }
+    }
+    public function archiveWiki($id)
+    {
+        try {
+            $query = "UPDATE wiki SET status = 'archived' WHERE id = $id";
+            $stmt = $this->pdo->query($query);
+            $stmt->execute();
+        } catch (PDOException $e) {
+            echo "Error fetching records: " . $e->getMessage();
+            return [];
+        }
+    }
 }

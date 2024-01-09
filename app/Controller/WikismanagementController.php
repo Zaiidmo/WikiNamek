@@ -19,4 +19,28 @@ class WikismanagementController
             Controller::getView("error404");
         }
     }
+    public function approve(){
+        $id = $_GET['id'];
+        $WikiModel = new WikiModel();
+        $WikiModel->approveWiki($id);
+        header("Location: ../../wikismanagement");
+    }
+    public function deny(){
+        $id = $_GET['id'];
+        $WikiModel = new WikiModel();
+        $WikiModel->denyWiki($id);
+        header("Location: ../../wikismanagement");
+    }
+    public function delete(){
+        $id = $_GET['id'];
+        $WikiModel = new WikiModel();
+        $WikiModel->deleteWiki($id);
+        header("Location: ../../wikismanagement");
+    }
+    public function archive(){
+        $id = $_GET['id'];
+        $WikiModel = new WikiModel();
+        $WikiModel->archiveWiki($id);
+        header("Location: ../../wikismanagement");
+    }
 }
