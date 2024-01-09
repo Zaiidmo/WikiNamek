@@ -76,8 +76,20 @@ class WikiModel extends Crud
         }
     }
 
-    public function updateWiki($data, $id){
+    public function updateWiki($data, $id)
+    {
         $tablename = 'wiki';
-        $this->update($tablename,$data,$id);
+        $this->update($tablename, $data, $id);
+    }
+
+    public function fetchSingleWiki($id)
+    {
+        $tablename = 'wiki';
+        $data = $this->getRecordById($tablename, $id);
+        $query = "SELECT user_name FROM user WHERE id = $id";
+        $stmt = $this->pdo->query($query);
+        $records = $stmt->fetch(PDO::FETCH_ASSOC);
+        $data['author_id'] = $records['user_name'];
+        return $data;
     }
 }

@@ -8,8 +8,11 @@ class SinglepageController
 {
     public function index()
     {
-        $wiki = new WikiModel();
-        $wikis = $wiki->fetchWikis();
-        Controller::getView("singlepage", ['wikis' => $wikis]);
+        $id = $_POST['id'];
+        // var_dump($_POST);  // Check if the id is being correctly retrieved
+
+        $wikis = new WikiModel();
+        $wiki = $wikis->fetchSingleWiki($id);
+        Controller::getView("singlepage", ['wiki' => $wiki]);
     }
 }
