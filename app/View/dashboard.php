@@ -46,7 +46,7 @@
                                 Total Users
                             </p>
                             <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
-                                Statistics </p>
+                                <?= $users ?> </p>
                         </div>
                     </div>
                     <div id="Authors" class="flex items-center p-4 bg-white  rounded-2xl shadow-xs dark:bg-gray-800">
