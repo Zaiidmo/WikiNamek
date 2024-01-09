@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Model\CategoriesModel;
 use App\Model\Permissions;
 
 class CategoriesController
@@ -11,7 +12,9 @@ class CategoriesController
         $categories_permission = new Permissions();
         $role = $categories_permission->Check();
         if ($role == 'admin') {
-            Controller::getView("categories");
+            $CategoriesModel = new CategoriesModel();
+            $Categories = $CategoriesModel->fetchCategories();
+            Controller::getView("categories", ['categories' => $Categories]);
         } else {
             Controller::getView("error404");
         }
