@@ -8,4 +8,5 @@ class WikisController
     {
         Controller::getView("wikis");
     }
+    
 }
