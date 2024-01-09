@@ -11,6 +11,9 @@ class WikiModel extends Crud
     {
         $tablename = 'category';
         return $this->read($tablename);
-        
+    }
+    public function CreateWiki($table, $data){
+        // var_dump($data);
+        $this->create($table, $data);
     }
 }
