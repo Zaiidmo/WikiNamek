@@ -2,10 +2,13 @@
 
 namespace App\Controller;
 
-class WikisController
+use App\Model\Crud;
+
+class WikisController extends Crud
 {
     public function index()
     {
+        
         Controller::getView("wikis");
     }
     
