@@ -45,4 +45,8 @@ class UserModel extends Crud
             exit();
         }
     }
+    public function update_profile($data, $id){
+        $tableName = 'user';
+        $this->update($tableName, $data, $id);
+    }
 }

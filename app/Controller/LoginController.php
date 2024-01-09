@@ -34,6 +34,7 @@ class LoginController
                 $_SESSION['id'] = $user['id'];
                 $_SESSION['user_name'] = $user['user_name'];
                 $_SESSION['email'] = $user['email'];
+                $_SESSION['profile_picture'] = $user['profile_picture'];
                 $_SESSION['role'] = $user['role'];
                 $redirect = URL_DIR . 'home';
                 header("Location: $redirect");
