@@ -67,13 +67,13 @@
             <div class="p-8 bg-white rounded-lg dark:bg-gray-900 shadow">
                 <h1 class="tracking-widest text-gray-800 mb-10 dark:text-white">My Already Posted Wikis</h1>
                 <div class="grid grid-cols-1 md:grid-cols-5">
-                    <?php foreach ($wikis as $wiki): ?>
+                    <?php foreach ($wikis as $wiki) : ?>
                         <div id="wiki" class="w-full md:w-80 rounded-xl mb-5 bg-white dark:bg-gray-800 shadow-2xl">
                             <img src="public/assets/uploads/<?= $wikis['picture'] ?>" class="h-48 w-full rounded-t-xl flex flex-col justify-between p-4 bg-cover  bg-center">
                             <div class="p-4 rounded-b-xl">
                                 <div class="flex items-center justify-between">
                                     <h1 class="text-black dark:text-white font-medium"><?= $wikis['title'] ?></h1>
-                                    <button class="text-black dark:text-white">
+                                    <button id="editwiki" class="text-black dark:text-white">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
                                         </svg>
@@ -131,6 +131,51 @@
                         <div class="flex justify-center">
                             <button type="submit" class="flex w-1/2 justify-center rounded-md bg-primary-600 px-3 py-1.5 text-sm font-semibold leading-6 tracking-widest text-white shadow-sm hover:bg-primary-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600">Submit Edits</button>
                         </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div id="wiki-modal" class="modification_modal hidden overflow-y-auto overflow-x-hidden fixed w-1/2 rounded-xl border top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 z-100 justify-center items-center dark:bg-gray-700 overflow-auto bg-opacity-50">
+            <div aria-hidden="true" class="flex flex-col justify-center px-2 py-12 lg:px-2 text-gray-900 dark:text-white">
+                <div class="sm:w-full sm:max-w-sm flex self-center justify-between items-center">
+                    <h2 class="self-center font-poppins text-center text-4xl font-bold leading-9 tracking-wider">Edit Your Profile</h2>
+                    <span class="close cursor-pointer">&times;</span>
+                </div>
+
+                <div class="mt-10 self-center w-1/2">
+                    <form action="Profile/edit_wiki" method="POST" enctype="multipart/form-data">
+                        <input type="number" name="id" id="wikiId" class="hidden" value="<?= $wikis['id'] ?>">
+                        <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">
+                            <div class="sm:col-span-2">
+                                <label for="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Title </label>
+                                <input type="text" name="title" id="title" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Wiki Title" required="">
+                            </div>
+                            <div class="sm:col-span-2">
+                                <label for="Description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description </label>
+                                <input type="text" name="Description" id="Description" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Wiki Description" required="">
+                            </div>
+                            <div>
+                                <label for="category" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Category</label>
+                                <select id="category" name="category" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                                    <option selected disabled>Select category</option>
+                                    <?php foreach ($categories as $category) : ?>
+                                        <option value="<?= $category['id']; ?>"><?= $category['name']; ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="picture" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Wiki Photo</label>
+                                <input type="file" name="picture" id="picture" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                            </div>
+                            <div class="sm:col-span-2">
+                                <label for="Content" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Content</label>
+                                <textarea id="Content" name="content" rows="8" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Your Content here"></textarea>
+                            </div>
+                        </div>
+                        <button type="submit" class="px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-gray-700 rounded-lg focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-900 hover:bg-gray-800">
+                            P O S T
+                        </button>
                     </form>
                 </div>
             </div>

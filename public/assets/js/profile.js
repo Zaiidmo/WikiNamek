@@ -27,3 +27,6 @@ document.body.addEventListener('click', function (event) {
 document.getElementById('editprofile').addEventListener('click',function(){
     document.getElementById('modification-modal').classList.toggle('hidden');
 })
+document.getElementById('editwiki').addEventListener('click',function(){
+    document.getElementById('wiki-modal').classList.toggle('hidden');
+})

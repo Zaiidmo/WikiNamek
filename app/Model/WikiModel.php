@@ -75,4 +75,9 @@ class WikiModel extends Crud
             return [];
         }
     }
+
+    public function updateWiki($data, $id){
+        $tablename = 'wiki';
+        $this->update($tablename,$data,$id);
+    }
 }

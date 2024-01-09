@@ -56,4 +56,5 @@ class NewWikiController extends Crud
         $Wiki->CreateWiki('wiki', $data);
         header('Location: ../wikis');
     }
+
 }

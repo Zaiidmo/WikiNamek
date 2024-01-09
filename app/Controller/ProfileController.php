@@ -5,6 +5,7 @@ namespace App\Controller;
 session_start();
 
 use App\Model\UserModel;
+use App\Model\WikiModel;
 
 class ProfileController
 {
@@ -16,7 +17,13 @@ class ProfileController
         if (isset($_SESSION['id'])) {
             $userModel = new UserModel();
             $data = $userModel->fetchWikis($_SESSION['id']);
-            Controller::getView('profile', ['wikis' => $data]);
+            $category = new WikiModel();
+            $categories = $category->fetchCategories();
+            $viewData = [
+                'wikis' => $data,
+                'categories' => $categories,
+            ];
+            Controller::getView('profile', $viewData);
         } else {
             Controller::getView('login');
         }
@@ -71,6 +78,45 @@ class ProfileController
         $_SESSION['email'] = $data['email'];
         $_SESSION['profile_picture'] = $data['profile_picture'];
         header("Location: $redirect");
+    }
+
+    public function edit_wiki(){
+        $wikiupdate = new WikiModel();
+        $data = [];
+        if (isset($_FILES['picture']) && !empty($_FILES['picture']['tmp_name'])) {
+            $picture = $_FILES['picture'];
+            $uploadDirectory = "C:/laragon/www/Wikinamek/public/assets/uploads/";
+            $filename = preg_replace("/[^a-zA-Z0-9]/", "_", $_POST['title']);
+        
+            // Validate file extension
+            $allowedExtensions = ['jpg', 'jpeg', 'png', 'gif'];
+            $originalExtension = strtolower(pathinfo($picture['name'], PATHINFO_EXTENSION));
+        
+            if (!in_array($originalExtension, $allowedExtensions)) {
+                echo 'Invalid file extension.';
+                return;
+            }
+        
+            $targetFileName = $uploadDirectory . $filename . '.' . $originalExtension;
+        
+            if (move_uploaded_file($picture['tmp_name'], $targetFileName)) {
+                $data['picture'] = $filename . '.' . $originalExtension;
+            } else {
+                echo 'File upload failed. Please try again later.';
+                return;
+            }
+        }
+        $id = $_POST['id'];
+        $data['title'] = $_POST['title'];
+        $data['description'] = $_POST['Description'];
+        $data['category_id'] = $_POST['category'];
+        $data['content'] = $_POST['content'];
+        $data['author_id'] = $_SESSION['id'];
+        // var_dump($data);die;
+        $wikiupdate->updateWiki($data, $id);
+        
+        header('Location: ../wikis');
+
     }
 
 }
