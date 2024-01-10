@@ -19,11 +19,11 @@
 <body class="font-poppins bg-gray-300 dark:bg-gray-800">
     <?php include "../app/View/includes/navbar.php"; ?>
     <main id="main" class="">
-        <div id="profile-card" class="p-16 pl-24">
+        <div id="profile-card" class="p-16 lg:pl-24">
 
             <div class="p-8 bg-white rounded-lg  dark:bg-gray-900 shadow mt-24">
                 <div class="grid grid-cols-1 md:grid-cols-3">
-                    <div class="grid grid-cols-3 text-center order-last md:order-first mt-20 md:mt-0">
+                    <div class="grid grid-cols-2 text-center order-last md:order-first mt-20 md:mt-0">
                         <div>
                             <p class="font-bold dark:text-white text-gray-700 text-xl">22</p>
                             <p class="dark:text-white text-gray-400">Posted Wikis</p>
@@ -38,16 +38,14 @@
                         </div>
                     </div>
                     <div class="relative justify-center">
-
                         <div class="w-48 h-48 bg-indigo-100 mx-auto rounded-full shadow-2xl absolute inset-x-0 top-0 -mt-24 flex items-center justify-center dark:text-white text-indigo-500">
                             <img class="rounded-full" src=<?= URL_DIR . "public/assets/uploads/" . $_SESSION['profile_picture'] ?> alt="profile">
                         </div>
                     </div>
-                    <div class="space-x-8 flex justify-between mt-32 md:mt-0 md:justify-center">
+                    <div class="lg:space-x-8 flex justify-center lg:justify-between mt-32 md:mt-0 md:justify-center">
                         <button id="editprofile" class="text-black bg-gray-300 dark:bg-gray-700 dark:text-white py-2 px-4 uppercase rounded bg-primary-100 hover:bg-primary-200 shadow hover:shadow-lg font-poppins font-bold transition transform hover:-translate-y-0.5">
                             Edit Profile
                         </button>
-                        <!-- <button class="text-white py-2 px-4 uppercase rounded bg-gray-700 hover:bg-gray-800 shadow hover:shadow-lg font-medium transition transform hover:-translate-y-0.5"> </button> -->
                     </div>
                 </div>
                 <div class="mt-20 text-center ">
@@ -63,10 +61,10 @@
                 </div> -->
             </div>
         </div>
-        <div id="History" class="p-16 pt-0 pl-24">
+        <div id="History" class="p-8 lg:p-16 lg:pt-0 lg:pl-24">
             <div class="p-8 bg-white rounded-lg dark:bg-gray-900 shadow">
                 <h1 class="tracking-widest text-gray-800 mb-10 dark:text-white">My Already Posted Wikis</h1>
-                <div class="grid grid-cols-1 md:grid-cols-5">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5">
                     <?php if (empty($wikis)) : ?>
                         <h4 class="tracking-widest text-gray-800 dark:text-white">No Wikis Available</h4>
                     <?php else : ?>
@@ -76,7 +74,7 @@
                                 <div class="p-4 rounded-b-xl">
                                     <div class="flex items-center justify-between">
                                         <h1 class="text-black dark:text-white font-medium"><?= $wiki['title'] ?></h1>
-                                        <button  data-id="<?= $wiki['id'] ?>" class="editwiki text-black dark:text-white">
+                                        <button data-id="<?= $wiki['id'] ?>" class="editwiki text-black dark:text-white">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
                                             </svg>
