@@ -8,7 +8,7 @@ $(document).ready(function () {
         method: "post",
         data: { search: input },
         success: function (res) {
-          console.log(JSON.parse(res));
+          // console.log(JSON.parse(res));
           displayWikis(JSON.parse(res));
         },
       });
@@ -32,7 +32,7 @@ function displayWikis(wiki) {
                             </span>
                         </div>
                         <form action="singlepage" method="POST">
-                            <input type="hidden" name="id" value="${wiki.id}">
+                            <input type="hidden" name="id" value="${wiki.title}">
                             <button type="submit" href="singlepage" class="dark:text-gray-500 inline-flex items-center font-medium text-primary-600 dark:text-primary-500 hover:underline">
                                 Read more
                                 <svg class="ml-2 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
