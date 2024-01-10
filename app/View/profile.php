@@ -42,8 +42,8 @@
                             <img class="rounded-full" src=<?= URL_DIR . "public/assets/uploads/" . $_SESSION['profile_picture'] ?> alt="profile">
                         </div>
                     </div>
-                    <div class="lg:space-x-8 flex justify-center lg:justify-between mt-32 md:mt-0 md:justify-center">
-                        <button id="editprofile" class="text-black bg-gray-300 dark:bg-gray-700 dark:text-white py-2 px-4 uppercase rounded bg-primary-100 hover:bg-primary-200 shadow hover:shadow-lg font-poppins font-bold transition transform hover:-translate-y-0.5">
+                    <div class="lg:space-x-8 py-1 flex justify-center lg:justify-between mt-32 md:mt-0 md:justify-center">
+                        <button id="editprofile" class="text-black bg-gray-300 dark:bg-gray-700 dark:text-white py- px-4 uppercase rounded bg-primary-100 hover:bg-primary-200 shadow hover:shadow-lg font-poppins font-bold transition transform hover:-translate-y-0.5">
                             Edit Profile
                         </button>
                     </div>

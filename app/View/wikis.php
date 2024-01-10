@@ -35,11 +35,10 @@
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
                             </svg>
                         </div>
-                        <input type="search" id="default-search" class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-gray-500 dark:focus:border-gray -500" placeholder="Looking for something special ? ..." >
-                        <button type="submit" class="text-white hover:text-black absolute end-2.5 bottom-2.5 bg-gray-700 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-gray-600 dark:hover:bg-gray-300 dark:focus:ring-gray-800">Search</button>
+                        <input type="search" id="searchinput" class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-gray-500 dark:focus:border-gray -500" placeholder="Looking for something special ? ..." >
                     </div>
                 </form>
-            <div class="grid gap-8 lg:grid-cols-2">
+            <div id="wikis-container" class="grid gap-8 lg:grid-cols-2">
                 <?php foreach($wikis as $wiki) :?>
                 <article class="p-6 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
                     <h2 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><a href="singlepage"><?= $wiki['title']?></a></h2>
@@ -76,6 +75,8 @@
 
 
 </body>
+<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+<script src="public/assets/js/search.js"></script>
 <script src="public/assets/js/navbar.js"></script>
 <script src="public/assets/js/theme.js"></script>
 

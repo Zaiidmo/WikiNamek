@@ -33,7 +33,7 @@
                 <?php if (isset($_SESSION['id'])) : ?>
                     <li class="relative z-50">
                         <button id="profile-menu-toggler" class="align-middle rounded-full focus:shadow-outline-purple focus:outline-none">
-                            <img class="object-cover w-8 h-8 rounded-full" src="https://images.unsplash.com/photo-1502378735452-bc7d86632805?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&s=aa3a807e1bbdfd4364d1f449eaa96d82" alt="profile-picture" />
+                            <img class="object-cover w-8 h-8 rounded-full" src="public/assets/uploads/<?= $_SESSION['profile_picture']?>" alt="profile-picture" />
                         </button>
                         <ul id="profile-menu" class="hidden absolute right-0 w-56 p-2 mt-2 space-y-2 text-gray-600 bg-white border border-gray-100 rounded-md shadow-md dark:border-gray-700 dark:text-gray-300 dark:bg-gray-700" aria-label="submenu">
                             <?php if ($_SESSION['role'] == 'admin') : ?>

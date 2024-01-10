@@ -107,4 +107,18 @@ class WikiModel extends Crud
             return [];
         }
     }
+    public function search($input){
+        try {
+            $query = " SELECT w.id, w.title, w.description, w.creation_date, w.content, w.status, u.user_name AS author, u.profile_picture AS profile, c.name FROM `wiki` w
+            INNER JOIN user u ON w.author_id = u.id 
+            INNER JOIN category c ON w.category_id = c.id
+            WHERE w.status = 'approved' AND w.title LIKE '%$input%'";
+            $stmt = $this->pdo->query($query);
+            $records = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            return $records;
+        } catch (PDOException $e) {
+            echo "Error fetching records: " . $e->getMessage();
+            return [];
+        }
+    }
 }

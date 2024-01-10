@@ -39,20 +39,20 @@ class ProfileController
         // Check if the 'profile_picture' file input is set and not empty
         if (isset($_FILES['profile_picture']) && !empty($_FILES['profile_picture']['tmp_name'])) {
             $profile_picture = $_FILES['profile_picture'];
-            $uploadDirectory = URL_DIR . "public/assets/uploads/";
+            $uploadDirectory = "C:/laragon/www/Wikinamek/public/assets/uploads/";
             $filename = preg_replace("/[^a-zA-Z0-9]/", "_", $_POST['user_name']);
-        
+
             // Validate file extension
             $allowedExtensions = ['jpg', 'jpeg', 'png', 'gif'];
             $originalExtension = strtolower(pathinfo($profile_picture['name'], PATHINFO_EXTENSION));
-        
+
             if (!in_array($originalExtension, $allowedExtensions)) {
                 echo 'Invalid file extension.';
                 return;
             }
-        
+
             $targetFileName = $uploadDirectory . $filename . '.' . $originalExtension;
-        
+
             if (move_uploaded_file($profile_picture['tmp_name'], $targetFileName)) {
                 $data['profile_picture'] = $filename . '.' . $originalExtension;
             } else {
@@ -60,7 +60,7 @@ class ProfileController
                 return;
             }
         }
-        
+
         // Check if the 'id' input is set and not empty
         $id = $_POST['id'];
         unset($_POST['id']);
@@ -80,25 +80,26 @@ class ProfileController
         header("Location: $redirect");
     }
 
-    public function edit_wiki(){
+    public function edit_wiki()
+    {
         $wikiupdate = new WikiModel();
         $data = [];
         if (isset($_FILES['picture']) && !empty($_FILES['picture']['tmp_name'])) {
             $picture = $_FILES['picture'];
             $uploadDirectory = "C:/laragon/www/Wikinamek/public/assets/uploads/";
             $filename = preg_replace("/[^a-zA-Z0-9]/", "_", $_POST['title']);
-        
+
             // Validate file extension
             $allowedExtensions = ['jpg', 'jpeg', 'png', 'gif'];
             $originalExtension = strtolower(pathinfo($picture['name'], PATHINFO_EXTENSION));
-        
+
             if (!in_array($originalExtension, $allowedExtensions)) {
                 echo 'Invalid file extension.';
                 return;
             }
-        
+
             $targetFileName = $uploadDirectory . $filename . '.' . $originalExtension;
-        
+
             if (move_uploaded_file($picture['tmp_name'], $targetFileName)) {
                 $data['picture'] = $filename . '.' . $originalExtension;
             } else {
@@ -114,9 +115,7 @@ class ProfileController
         $data['author_id'] = $_SESSION['id'];
         // var_dump($data);die;
         $wikiupdate->updateWiki($data, $id);
-        
+
         header('Location: ../profile');
-
     }
-
 }
