@@ -2,14 +2,19 @@
 
 namespace App\Controller;
 
-use App\Model\WikiModel;
+use App\Model\HomeModel;
 
 class HomeController
 {
     public function index()
     {
-        $wiki = new WikiModel();
-        $wikis = $wiki->fetchWikis();
-        Controller::getView("home", ['wikis' => $wikis]);
+        $wiki = new HomeModel();
+        $wikis = $wiki->popularWikis();
+        $authors = $wiki->popularAuthors();
+        $viewData = [
+            'wikis' => $wikis,
+            'authors' => $authors
+        ];
+        Controller::getView("home", $viewData);
     }
 }

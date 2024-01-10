@@ -15,7 +15,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Salsa&display=swap" rel="stylesheet">
 </head>
 
-<body class="bg-gray-300 dark:bg-gray-900 text-gray-900 font-poppins">
+<body class="bg-gray-300 dark:bg-gray-900 h-screen text-gray-900 font-poppins">
     <?php
     include "../app/View/includes/navbar.php";
     ?>
@@ -46,7 +46,7 @@
                     <p class="mb-5 font-light text-gray-500 dark:text-gray-400"><?= $wiki['description']?></p>
                     <div class="flex justify-between items-center">
                         <div class="flex items-center space-x-4">
-                            <img class="w-7 h-7 rounded-full" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png" alt="Jese Leos avatar" />
+                            <img class="w-7 h-7 rounded-full" src="public/assets/uploads/<?= $wiki['profile']?>" alt="author" />
                             <span class="font-medium dark:text-white">
                             <?= $wiki['author']?>
                             </span>

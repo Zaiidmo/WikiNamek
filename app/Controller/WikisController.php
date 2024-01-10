@@ -10,7 +10,7 @@ class WikisController extends Crud
     public function index()
     {
         $wiki = new WikiModel();
-        $wikis = $wiki->fetchWikis();
+        $wikis = $wiki->fetcApprovedhWikis();
         Controller::getView("wikis", ['wikis' => $wikis]);
     }
     

@@ -16,7 +16,7 @@ class WikismanagementController
             $Wikis = $WikiModel->fetchWikis();
             Controller::getView("wikismanagement", ['wikis' => $Wikis]);
         } else {
-            Controller::getView("error404");
+            Controller::getView("unautorized");
         }
     }
     public function approve(){

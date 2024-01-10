@@ -50,8 +50,25 @@ class UserModel extends Crud
         $this->update($tableName, $data, $id);
     }
 
-    public function fetchWikis($id){
-        $myWikis = $this->getRecordById('wiki', $id);
-        return $myWikis;
+    public function MyWikis($id){
+        try{
+            $query = "SELECT * FROM wiki WHERE author_id = $id";
+            $stmt = $this->pdo->query($query);
+            $records = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            return $records;
+        } catch (PDOException $e){
+            echo "Error fetching records: " . $e->getMessage();
+            return [];
+        }
+    }
+    public function updateRole($id){
+        try {
+            $query = "UPDATE user SET role = 'author' WHERE id = $id";
+            $stmt = $this->pdo->query($query);
+            $stmt->execute();
+        } catch (PDOException $e) {
+            echo "Error fetching records: " . $e->getMessage();
+            return [];
+        }
     }
 }

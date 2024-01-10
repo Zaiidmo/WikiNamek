@@ -9,20 +9,20 @@ class DashboardController
 {
     public function index()
     {
-        $statistics = new Statistics();
-        $totalUsersData = $statistics->getTotalUsers();
-        $totalAuthorsData = $statistics->getTotalAuthors();
-        $totalReadersData = $statistics->getTotalReaders();
-        $totalWikisData = $statistics->getTotalWikis();
-        $approvedWikisData = $statistics->getApprovedWikis();
-        $deniedWikisData = $statistics->getDeniedWikis();
+        // $statistics = new Statistics();
+        // $totalUsersData = $statistics->getTotalUsers();
+        // $totalAuthorsData = $statistics->getTotalAuthors();
+        // $totalReadersData = $statistics->getTotalReaders();
+        // $totalWikisData = $statistics->getTotalWikis();
+        // $approvedWikisData = $statistics->getApprovedWikis();
+        // $deniedWikisData = $statistics->getDeniedWikis();
 
-        $users = $totalUsersData['totalUsers'];
-        $author = $totalAuthorsData['totalAuthors'];
-        $reader = $totalReadersData['totalReaders'];
-        $wiki = $totalWikisData['totalWikis'];
-        $approved = $approvedWikisData['approvedWikis'];
-        $denied = $deniedWikisData['deniedWikis'];
+        // $users = $totalUsersData['totalUsers'];
+        // $author = $totalAuthorsData['totalAuthors'];
+        // $reader = $totalReadersData['totalReaders'];
+        // $wiki = $totalWikisData['totalWikis'];
+        // $approved = $approvedWikisData['approvedWikis'];
+        // $denied = $deniedWikisData['deniedWikis'];
 
 
         $dashboard_per = new Permissions();
@@ -30,7 +30,7 @@ class DashboardController
         if ($role == 'admin') {
             Controller::getView("dashboard");
         } else {
-            Controller::getView("error404");
+            Controller::getView("unautorized");
         }
     }
 }

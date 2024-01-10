@@ -27,6 +27,27 @@ document.body.addEventListener('click', function (event) {
 document.getElementById('editprofile').addEventListener('click',function(){
     document.getElementById('modification-modal').classList.toggle('hidden');
 })
-document.getElementById('editwiki').addEventListener('click',function(){
-    document.getElementById('wiki-modal').classList.toggle('hidden');
-})
+
+document.querySelectorAll('.editwiki').forEach(function (button) {
+    button.addEventListener('click', function () {
+        // Extract the wiki ID from the data-id attribute
+        var wikiId = this.getAttribute('data-id');
+        // Build the corresponding modal ID
+        var modalId = 'wiki-modal-' + wikiId;
+        // Find the modal using the new ID
+        var modal = document.getElementById(modalId);
+        // Toggle the 'hidden' class for the modal
+        if (modal) {
+            modal.classList.toggle('hidden');
+            var closeSpan = modal.querySelector('.close');
+
+            // Add event listener to close the modal when clicking the close span
+            if (closeSpan) {
+                closeSpan.addEventListener('click', function () {
+                    modal.classList.add('hidden');
+                });
+            }
+        }
+        
+    });
+});

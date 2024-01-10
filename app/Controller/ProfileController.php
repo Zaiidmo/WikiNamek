@@ -14,9 +14,9 @@ class ProfileController
         if (session_status() == PHP_SESSION_NONE) {
             session_start();
         }
-        if (isset($_SESSION['id'])) {
+        if (isset($_SESSION['id']) && $_SESSION['role'] == 'author') {
             $userModel = new UserModel();
-            $data = $userModel->fetchWikis($_SESSION['id']);
+            $data = $userModel->MyWikis($_SESSION['id']);
             $category = new WikiModel();
             $categories = $category->fetchCategories();
             $viewData = [
@@ -115,7 +115,7 @@ class ProfileController
         // var_dump($data);die;
         $wikiupdate->updateWiki($data, $id);
         
-        header('Location: ../wikis');
+        header('Location: ../profile');
 
     }
 

@@ -48,8 +48,7 @@
     <section class="bg-white dark:bg-gray-800">
         <div class="py-8 px-4 mx-auto max-w-screen-xl lg:px-6 ">
             <div class="mx-auto max-w-screen-sm text-center mb-8 lg:mb-16">
-                <h2 class="mb-4 text-4xl tracking-wider font-salsa font-bold text-gray-900 dark:text-white">Explore the last posted Wikis</h2>
-                <!-- <p class="font-light text-gray-500 lg:mb-16 sm:text-xl dark:text-gray-400">Explore the whole collection of open-source web components and elements built with the utility classes from Tailwind</p> -->
+                <h2 class="mb-4 text-4xl tracking-wider font-bold text-gray-900 dark:text-white">Explore the last posted Wikis</h2>
             </div>
             <div class="grid gap-8 mb-6 lg:mb-16 md:grid-cols-2 lg:grid-cols-3">
                 <?php foreach ($wikis as $wiki) : ?>
@@ -58,12 +57,15 @@
                         <div class="p-5">
                             <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><?= $wiki['title'] ?></h5>
                             <p class="mb-3 font-normal text-gray-700 dark:text-gray-400"><?= $wiki['description'] ?></p>
-                            <a href="singlepage" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                                Read more
-                                <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9">
-                                </svg>
-                            </a>
+                            <form action="singlepage" method="POST">
+                                <input type="hidden" name="id" value="<?= $wiki['id'] ?>">
+                                <button type="submit" href="singlepage" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                    Read more
+                                    <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9">
+                                    </svg>
+                                </button>
+                                </form>
                         </div>
                     </div>
                 <?php endforeach ?>
@@ -80,36 +82,18 @@
                 <!-- <p class="font-light text-gray-500 lg:mb-16 sm:text-xl dark:text-gray-400">Explore the whole collection of open-source web components and elements built with the utility classes from Tailwind</p> -->
             </div>
             <div class="grid gap-8 mb-6 lg:mb-16 md:grid-cols-2 lg:grid-cols-3">
+                <?php foreach ($authors as $author):?>
                 <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow py-5 dark:bg-gray-800 dark:border-gray-700">
                     <div class="flex flex-col items-center">
-                        <img class="w-24 h-24 mb-3 rounded-full shadow-lg" src="<?= URL_DIR ?>public/assets/images/favicon.png" alt="Author" />
-                        <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">Bonnie Green</h5>
-                        <span class="text-sm text-gray-500 dark:text-gray-400">Visual Designer</span>
+                        <img class="w-24 h-24 mb-3 rounded-full shadow-lg" src="public/assets/uploads/<?= $author['profile']?>" alt="Author" />
+                        <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white"><?= $author['user_name']?></h5>
+                        <span class="text-sm text-gray-500 dark:text-gray-400"><?= $author['email']?></span>
                         <div class="flex mt-4 md:mt-6">
                             <a href="wikis" class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-gray-900 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-700 dark:focus:ring-gray-700 ms-3">Browse Wikis</a>
                         </div>
                     </div>
                 </div>
-                <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow py-5 dark:bg-gray-800 dark:border-gray-700">
-                    <div class="flex flex-col items-center">
-                        <img class="w-24 h-24 mb-3 rounded-full shadow-lg" src="<?= URL_DIR ?>public/assets/images/favicon.png" alt="Author" />
-                        <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">Bonnie Green</h5>
-                        <span class="text-sm text-gray-500 dark:text-gray-400">Visual Designer</span>
-                        <div class="flex mt-4 md:mt-6">
-                            <a href="wikis" class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-gray-900 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-700 dark:focus:ring-gray-700 ms-3">Browse Wikis</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow py-5 dark:bg-gray-800 dark:border-gray-700">
-                    <div class="flex flex-col items-center">
-                        <img class="w-24 h-24 mb-3 rounded-full shadow-lg" src="<?= URL_DIR ?>public/assets/images/favicon.png" alt="Author" />
-                        <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">Bonnie Green</h5>
-                        <span class="text-sm text-gray-500 dark:text-gray-400">Visual Designer</span>
-                        <div class="flex mt-4 md:mt-6">
-                            <a href="wikis" class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-gray-900 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-700 dark:focus:ring-gray-700 ms-3">Browse Wikis</a>
-                        </div>
-                    </div>
-                </div>
+                <?php endforeach?>
 
             </div>
         </div>

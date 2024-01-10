@@ -16,7 +16,7 @@ class CategoriesController
             $Categories = $CategoriesModel->fetchCategories();
             Controller::getView("categories", ['categories' => $Categories]);
         } else {
-            Controller::getView("error404");
+            Controller::getView("unautorized");
         }
     }
 }

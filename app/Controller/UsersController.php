@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Controller;
-
+session_start();
 use App\Model\Permissions;
 use App\Model\UserModel;
 
@@ -18,12 +18,16 @@ class UsersController
     
             Controller::getView("users", ['users' => $users]);
         } else {
-            Controller::getView("error404");
+            Controller::getView("unautorized");
         }
     }
-
-    public function delete(){
-        
+    
+    public function becomeAuthor(){
+        $userModel = new UserModel();
+        $id = $_SESSION['id'];
+        $userModel->updateRole($id);
+        $_SESSION['role'] = 'author';
+        header('Location: ../home');
+    }
     }
     
-}
