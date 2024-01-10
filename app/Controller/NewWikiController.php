@@ -46,14 +46,14 @@ class NewWikiController extends Crud
                 return;
             }
         }
-        
+        $tags = explode(",", $_POST["tags"]);
         $data['title'] = $_POST['title'];
         $data['description'] = $_POST['Description'];
         $data['category_id'] = $_POST['category'];
         $data['content'] = $_POST['content'];
         $data['author_id'] = $_SESSION['id'];
         // var_dump($data);die;
-        $Wiki->CreateWiki('wiki', $data);
+        $Wiki->CreateWiki('wiki', $data, $tags);
         header('Location: ../wikis');
     }
 

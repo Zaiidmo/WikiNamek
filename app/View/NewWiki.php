@@ -54,8 +54,12 @@
                         <label for="Content" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Content</label>
                         <textarea id="Content" name="content" rows="8" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Your Content here"></textarea>
                     </div>
+                    <div class="sm:col-span-2">
+                        <label for="tags" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tags: (Comma Separated ',') </label>
+                        <input type="text" name="tags" id="tags" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Wiki Tags" required="">
+                    </div>
                 </div>
-                <button type="submit" class="px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-gray-700 rounded-lg focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-900 hover:bg-gray-800">
+                <button id="sumbit-creation" type="submit" class="px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-gray-700 rounded-lg focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-900 hover:bg-gray-800">
                     P O S T
                 </button>
             </form>

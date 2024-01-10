@@ -20,7 +20,8 @@ class ProfileController
             $category = new WikiModel();
             $categories = $category->fetchCategories();
             $viewData = [
-                'wikis' => $data,
+                'wikis' => $data['data'],
+                'counts' => $data['counts'],
                 'categories' => $categories,
             ];
             Controller::getView('profile', $viewData);
@@ -118,4 +119,5 @@ class ProfileController
 
         header('Location: ../profile');
     }
+
 }

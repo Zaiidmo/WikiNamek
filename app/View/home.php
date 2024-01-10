@@ -34,14 +34,14 @@
                 <a href="wikis" class="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 border border-gray-800  rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
                     Discover Wikis
                 </a>
-                <?php if(!isset($_SESSION)):?>
-                <a href="signin" class="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-gray-800 dark:text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">
-                    Get started
-                    <svg class="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-                    </svg>
-                </a>
-                <?php endif?>
+                <?php if (!isset($_SESSION)) : ?>
+                    <a href="signin" class="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-gray-800 dark:text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">
+                        Get started
+                        <svg class="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                        </svg>
+                    </a>
+                <?php endif ?>
             </div>
         </div>
     </section>
@@ -67,7 +67,7 @@
                                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9">
                                     </svg>
                                 </button>
-                                </form>
+                            </form>
                         </div>
                     </div>
                 <?php endforeach ?>
@@ -84,18 +84,18 @@
                 <!-- <p class="font-light text-gray-500 lg:mb-16 sm:text-xl dark:text-gray-400">Explore the whole collection of open-source web components and elements built with the utility classes from Tailwind</p> -->
             </div>
             <div class="grid gap-8 mb-6 lg:mb-16 md:grid-cols-2 lg:grid-cols-3">
-                <?php foreach ($authors as $author):?>
-                <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow py-5 dark:bg-gray-800 dark:border-gray-700">
-                    <div class="flex flex-col items-center">
-                        <img class="w-24 h-24 mb-3 rounded-full shadow-lg" src="public/assets/uploads/<?= $author['profile']?>" alt="Author" />
-                        <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white"><?= $author['user_name']?></h5>
-                        <span class="text-sm text-gray-500 dark:text-gray-400"><?= $author['email']?></span>
-                        <div class="flex mt-4 md:mt-6">
-                            <a href="wikis" class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-gray-900 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-700 dark:focus:ring-gray-700 ms-3">Browse Wikis</a>
+                <?php foreach ($authors as $author) : ?>
+                    <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow py-5 dark:bg-gray-800 dark:border-gray-700">
+                        <div class="flex flex-col items-center">
+                            <img class="w-24 h-24 mb-3 rounded-full shadow-lg" src="public/assets/uploads/<?= $author['profile'] ?>" alt="Author" />
+                            <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white"><?= $author['user_name'] ?></h5>
+                            <span class="text-sm text-gray-500 dark:text-gray-400"><?= $author['email'] ?></span>
+                            <div class="flex mt-4 md:mt-6">
+                                <a href="wikis" class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-gray-900 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-700 dark:focus:ring-gray-700 ms-3">Browse Wikis</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <?php endforeach?>
+                <?php endforeach ?>
 
             </div>
         </div>
@@ -107,7 +107,12 @@
 
 
 </body>
-<script src="public/assets/js/navbar.js"></script>
 <script src="public/assets/js/theme.js"></script>
+<?php if (isset($_SESSION['id'])) : ?>
+    <script src="public/assets/js/navbar.js"></script>
+<?php else : ?>
+    <script src="public/assets/js/session.js"></script>
+
+<?php endif; ?>
 
 </html>

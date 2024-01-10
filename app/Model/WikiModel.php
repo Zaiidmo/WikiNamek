@@ -12,10 +12,50 @@ class WikiModel extends Crud
         $tablename = 'category';
         return $this->read($tablename);
     }
-    public function CreateWiki($table, $data)
+    public function CreateWiki($table, $data, $tags)
     {
         // var_dump($data);
-        $this->create($table, $data);
+        try {
+            $this->create($table, $data);
+            $wikiId = $this->pdo->lastInsertId();
+            $tagIds = [];
+            foreach ($tags as $tag) {
+                $tag = trim($tag);
+
+                // Check if the tag already exists
+                $tagExistsQuery = "SELECT id FROM tags WHERE name = :tag";
+                $tagStmt = $this->pdo->prepare($tagExistsQuery);
+                $tagStmt->bindParam(':tag', $tag);
+                $tagStmt->execute();
+                $tagResult = $tagStmt->fetch(PDO::FETCH_ASSOC);
+
+                if ($tagResult) {
+                    // Tag already exists, get its ID
+                    $tagIds[] = $tagResult['id'];
+                } else {
+                    // Tag does not exist, add it to the tags table
+                    $addTagQuery = "INSERT INTO tags (name) VALUES (:tag)";
+                    $addTagStmt = $this->pdo->prepare($addTagQuery);
+                    $addTagStmt->bindParam(':tag', $tag);
+                    $addTagStmt->execute();
+
+                    // Get the ID of the newly added tag
+                    $tagIds[] = $this->pdo->lastInsertId();
+                }
+            }
+
+            // Add wiki-tag relationships
+            foreach ($tagIds as $tagId) {
+                $addWikiTagQuery = "INSERT INTO wiki_tag (tag_id, wiki_id) VALUES (:tag_id, :wiki_id)";
+                $addWikiTagStmt = $this->pdo->prepare($addWikiTagQuery);
+                $addWikiTagStmt->bindParam(':tag_id', $tagId);
+                $addWikiTagStmt->bindParam(':wiki_id', $wikiId);
+                $addWikiTagStmt->execute();
+            }
+
+        } catch (PDOException $e) {
+            echo "Error inserting wiki with tags: " . $e->getMessage();
+        }
     }
     public function fetchWikis()
     {
@@ -86,14 +126,16 @@ class WikiModel extends Crud
     {
         $tablename = 'wiki';
         $data = $this->getRecordById($tablename, $id);
-        $query = "SELECT user_name FROM user WHERE id = $id";
+        $author_id = $data['author_id'];
+        $query = "SELECT user_name FROM user WHERE id = $author_id";
         $stmt = $this->pdo->query($query);
         $records = $stmt->fetch(PDO::FETCH_ASSOC);
         $data['author_id'] = $records['user_name'];
         return $data;
     }
 
-    public function fetcApprovedhWikis(){
+    public function fetcApprovedhWikis()
+    {
         try {
             $query = " SELECT w.id, w.title, w.description, w.creation_date, w.content, w.status, u.user_name AS author, u.profile_picture AS profile, c.name FROM `wiki` w
             INNER JOIN user u ON w.author_id = u.id 
@@ -107,7 +149,8 @@ class WikiModel extends Crud
             return [];
         }
     }
-    public function search($input){
+    public function search($input)
+    {
         try {
             $query = " SELECT w.id, w.title, w.description, w.creation_date, w.content, w.status, u.user_name AS author, u.profile_picture AS profile, c.name FROM `wiki` w
             INNER JOIN user u ON w.author_id = u.id 

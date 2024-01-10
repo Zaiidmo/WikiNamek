@@ -23,17 +23,17 @@
 
             <div class="p-8 bg-white rounded-lg  dark:bg-gray-900 shadow mt-24">
                 <div class="grid grid-cols-1 md:grid-cols-3">
-                    <div class="grid grid-cols-2 text-center order-last md:order-first mt-20 md:mt-0">
+                    <div class="grid grid-cols-2 lg:grid-cols-3 text-center order-last md:order-first mt-20 md:mt-0">
                         <div>
-                            <p class="font-bold dark:text-white text-gray-700 text-xl">22</p>
+                            <p class="font-bold dark:text-white text-gray-700 text-xl"><?= $counts['all'] ?></p>
                             <p class="dark:text-white text-gray-400">Posted Wikis</p>
                         </div>
                         <div>
-                            <p class="font-bold dark:text-white text-gray-700 text-xl">10</p>
+                            <p class="font-bold dark:text-white text-gray-700 text-xl"><?= $counts['approved'] ?></p>
                             <p class="dark:text-white text-gray-400">Approved</p>
                         </div>
                         <div>
-                            <p class="font-bold dark:text-white text-gray-700 text-xl">89</p>
+                            <p class="font-bold dark:text-white text-gray-700 text-xl"><?= $counts['denied'] ?></p>
                             <p class=" dark:text-white text-gray-400">Denied</p>
                         </div>
                     </div>
@@ -104,7 +104,7 @@
             <div aria-hidden="true" class="flex flex-col justify-center px-2 py-12 lg:px-2 text-gray-900 dark:text-white">
                 <div class="sm:w-full sm:max-w-sm flex self-center justify-between items-center">
                     <h2 class="self-center font-poppins text-center text-4xl font-bold leading-9 tracking-wider">Edit Your Profile</h2>
-                    <span class="close cursor-pointer">&times;</span>
+                    <span id="closeedit" class="closeedit cursor-pointer">&times;</span>
                 </div>
 
                 <div class="mt-10 self-center w-1/2">

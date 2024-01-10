@@ -19,7 +19,7 @@
 <body class="bg-gray-300 dark:bg-gray-900 text-gray-900 font-poppins">
     <div class="grid h-screen px-4 place-content-center">
         <div class="text-center">
-            <h1 class="font-black text-gray-200 text-9xl">:)</h1>
+            <h1 class="font-salsa mb-2 text-gray-200 text-x12">:)</h1>
 
             <p class="text-2xl font-bold tracking-tight text-gray-900 sm:text-4xl dark:text-white">
                 Uh-oh!

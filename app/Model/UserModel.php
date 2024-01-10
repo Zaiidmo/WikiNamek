@@ -45,23 +45,49 @@ class UserModel extends Crud
             exit();
         }
     }
-    public function update_profile($data, $id){
+    public function update_profile($data, $id)
+    {
         $tableName = 'user';
         $this->update($tableName, $data, $id);
     }
 
-    public function MyWikis($id){
-        try{
-            $query = "SELECT * FROM wiki WHERE author_id = $id";
-            $stmt = $this->pdo->query($query);
-            $records = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            return $records;
-        } catch (PDOException $e){
-            echo "Error fetching records: " . $e->getMessage();
-            return [];
-        }
+    public function MyWikis($id)
+{
+    try {
+        // Fetch all wikis for the author
+        $queryAll = "SELECT * FROM wiki WHERE author_id = $id";
+        $stmtAll = $this->pdo->query($queryAll);
+        $allWikis = $stmtAll->fetchAll(PDO::FETCH_ASSOC);
+
+        // Fetch approved wikis
+        $queryApproved = "SELECT * FROM wiki WHERE author_id = $id AND status = 'approved'";
+        $stmtApproved = $this->pdo->query($queryApproved);
+        $approvedWikis = $stmtApproved->fetchAll(PDO::FETCH_ASSOC);
+
+        // Fetch denied wikis
+        $queryDenied = "SELECT * FROM wiki WHERE author_id = $id AND status = 'denied'";
+        $stmtDenied = $this->pdo->query($queryDenied);
+        $deniedWikis = $stmtDenied->fetchAll(PDO::FETCH_ASSOC);
+
+        // Calculate counts
+        $counts = [
+            'all' => count($allWikis),
+            'approved' => count($approvedWikis),
+            'denied' => count($deniedWikis),
+        ];
+
+        // Return data and counts
+        return ['data' => $allWikis, 'counts' => $counts];
+    } catch (PDOException $e) {
+        echo "Error fetching records: " . $e->getMessage();
+        return ['data' => [], 'counts' => []];
     }
-    public function updateRole($id){
+}
+
+
+
+    public function updateRole($id)
+    {
         try {
             $query = "UPDATE user SET role = 'author' WHERE id = $id";
             $stmt = $this->pdo->query($query);

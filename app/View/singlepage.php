@@ -38,7 +38,11 @@
 
 
 </body>
-<script src="public/assets/js/navbar.js"></script>
 <script src="public/assets/js/theme.js"></script>
+<?php if (isset($_SESSION['id'])) : ?>
+    <script src="public/assets/js/navbar.js"></script>
+<?php else : ?>
+    <script src="public/assets/js/session.js"></script>
+<?php endif; ?>
 
 </html>

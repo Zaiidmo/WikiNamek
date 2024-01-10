@@ -22,6 +22,9 @@ module.exports = {
         poppins: ["Poppins", "sans-serif"],
         salsa: ["Salsa", "cursive"],
       },
+      fontSize: {
+        'x12': '10rem' ,
+      },
       colors :{
         // 'primary' :{
         //   100: '#0D4B33',

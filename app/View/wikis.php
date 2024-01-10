@@ -78,9 +78,9 @@
 <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
 <script src="public/assets/js/search.js"></script>
 <script src="public/assets/js/theme.js"></script>
-<script src="public/assets/js/session.js"></script>
-<?php if(isset($_SESSION['id'])) :?>
-<script src="public/assets/js/navbar.js"></script>
+<?php if (isset($_SESSION['id'])) : ?>
+    <script src="public/assets/js/navbar.js"></script>
+<?php else : ?>
+    <script src="public/assets/js/session.js"></script>
 <?php endif; ?>
-
 </html>
