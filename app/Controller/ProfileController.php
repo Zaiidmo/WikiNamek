@@ -14,7 +14,7 @@ class ProfileController
         if (session_status() == PHP_SESSION_NONE) {
             session_start();
         }
-        if (isset($_SESSION['id']) && $_SESSION['role'] == 'author') {
+        if (isset($_SESSION['id']) && ($_SESSION['role'] == 'author' || $_SESSION['role'] == 'admin') ) {
             $userModel = new UserModel();
             $data = $userModel->MyWikis($_SESSION['id']);
             $category = new WikiModel();

@@ -102,7 +102,7 @@ DATABASE = db_name
 ## SQL code
 
 - You'll find the SQL QUERY CODE in the Database Folder 
-To import it, use PHPMyAdmin or any other MySQL Manager and follow these steps :
+To import it, use PHPMyAdmin or any other MySQL Manager.
 
 ## Author
 
