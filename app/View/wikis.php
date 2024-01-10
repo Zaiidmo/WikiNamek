@@ -21,7 +21,7 @@
     ?>
 
     <!-- Content Section -->
-    <section class=" pt-24">
+    <section class=" pt-24 h-screen">
         <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
             <div class="mx-auto max-w-screen-sm text-center lg:mb-16 mb-8">
                 <h2 class="mb-4 text-3xl lg:text-4xl font-salsa tracking-wider font-bold text-gray-900 dark:text-white">Explore All Posted Wikis</h2>
