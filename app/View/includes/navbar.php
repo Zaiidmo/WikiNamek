@@ -11,7 +11,7 @@
                     </path>
                 </svg>
             </button>
-            <div id="logo" class="flex items-center z-40">
+            <div id="logo" class="pl-4 flex items-center z-40">
                 <!-- <a href="home" class="flex ml-4 md:mr-24 gap-5 items-center">
                     <svg width="209" height="48" viewBox="0 0 209 48" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                         <rect width="48" height="48" fill="url(#pattern0)" />
@@ -37,7 +37,7 @@
                     </svg>
                     <div class="hidden md:flex flex-col leading-7 ">
                         <span class="self-center tracking-widest sm:text-l md:text-l lg:text-l font-salsa font-semibold whitespace-nowrap dark:text-white">WikiNamek</span>
-                        <span class="self-center sm:text-sss md:text-sss lg:text-sss font-poppinm font-semibold whitespace-nowrap dark:text-white">Your Gateway to infinit insights</span>
+                        <span class="self-center sm:text-sss md:text-sss lg:text-sss font-poppinm whitespace-nowrap dark:text-white">Your Gateway to infinit insights</span>
                     </div>
                 </a>
             </div>
@@ -61,7 +61,7 @@
                                     </p>
                                 </div>
                                 <li class="flex">
-                                    <a class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200" href="dashboard ">
+                                    <a class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200" href="dashboard">
                                         <svg class="w-4 h-4 mr-3" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
                                             <path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
                                         </svg>
@@ -133,7 +133,7 @@
         </div>
     </nav>
 </header>
-<aside id="sidebar" class="fixed hidden z-30 top-0 left-0 lg:w-72 pt-10 shadow-md h-screen transition-transform -translate-x-full sm:translate-x-full" aria-label="Sidebar">
+<aside id="sidebar" class="fixed hidden z-30 top-0 left-0 lg:w-72 pt-10 shadow-md h-screen transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
     <div class="h-full px-3 overflow-y-auto shadow-md text-white bg-black dark:bg-gray-800">
         <ul class="space-y-2 font-medium mt-16">
             <li>

@@ -4,7 +4,7 @@ namespace App\Model;
 use PDO;
 use PDOException;
 
-session_start();
+// session_start();
 
 class Permissions extends Crud 
 {

@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Model\CategoriesModel;
 use App\Model\Permissions;
+use App\Model\WikiModel;
 
 class CategoriesController
 {
@@ -14,9 +15,26 @@ class CategoriesController
         if ($role == 'admin') {
             $CategoriesModel = new CategoriesModel();
             $Categories = $CategoriesModel->fetchCategories();
-            Controller::getView("categories", ['categories' => $Categories]);
+            foreach ($Categories as $category) {
+                $wikiCount = $CategoriesModel->getWikiCountByCategoryId($category['id']);
+                $wikiCounts[$category['id']] = $wikiCount;
+            }
+            $viewData = [
+                'categories' => $Categories,
+                'wikiCount' => $wikiCounts
+            ];
+            // var_dump($viewData);die;
+            Controller::getView("categories", $viewData);
         } else {
             Controller::getView("unautorized");
         }
     }
+    public function deleteCat(){
+        $redirect = URL_DIR . 'categories';
+        $CategoriesModel = new CategoriesModel();
+        $id = $_GET['id'];
+        $CategoriesModel->deleteCategory($id);
+        header("Location: $redirect");
+    }
+    
 }

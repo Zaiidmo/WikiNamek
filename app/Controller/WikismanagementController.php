@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Controller;
-
+    
 use App\Model\Permissions;
 use App\Model\WikiModel;
 
@@ -14,7 +14,7 @@ class WikismanagementController
         if ($role == 'admin') {
             $WikiModel = new WikiModel();
             $Wikis = $WikiModel->fetchWikis();
-            Controller::getView("wikismanagement", ['wikis' => $Wikis]);
+            Controller::getView("wikismanagement", ['wikis' => $Wikis]);        
         } else {
             Controller::getView("unautorized");
         }

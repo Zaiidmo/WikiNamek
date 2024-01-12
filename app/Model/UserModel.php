@@ -83,9 +83,6 @@ class UserModel extends Crud
         return ['data' => [], 'counts' => []];
     }
 }
-
-
-
     public function updateRole($id)
     {
         try {
@@ -96,5 +93,10 @@ class UserModel extends Crud
             echo "Error fetching records: " . $e->getMessage();
             return [];
         }
+    }
+    public function deleteUser($id)
+    {
+        $tableName = 'user';
+        $this->delete($tableName, $id);
     }
 }

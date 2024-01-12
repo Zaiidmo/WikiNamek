@@ -14,4 +14,13 @@ class CategoriesModel extends Crud
         // $count = $this->show_stats('wiki');
         // return[$data,$count];
     }
+    public function getWikiCountByCategoryId($categoryId) {
+        $tablename = 'wiki';
+        $condition = "WHERE category_id = $categoryId";
+        return $this->show_stats($tablename, $condition);
+    }
+    public function deleteCategory($categoryId){
+        $tablename = 'category';
+        return $this->delete($tablename, $categoryId);
+    }
 }

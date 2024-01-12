@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-session_start();
 
 use App\Model\UserModel;
 use App\Model\WikiModel;
