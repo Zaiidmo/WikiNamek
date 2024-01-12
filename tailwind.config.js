@@ -23,7 +23,8 @@ module.exports = {
         salsa: ["Salsa", "cursive"],
       },
       fontSize: {
-        'x12': '10rem' ,
+        'x12': '10rem',
+        'sss': '0.5rem',
       },
       colors :{
         // 'primary' :{
