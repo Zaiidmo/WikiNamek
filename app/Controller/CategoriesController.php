@@ -36,5 +36,13 @@ class CategoriesController
         $CategoriesModel->deleteCategory($id);
         header("Location: $redirect");
     }
-    
+    public function editCat(){
+        $redirect = URL_DIR . 'categories';
+        $CategoriesModel = new CategoriesModel();
+        $id = $_GET['id'];
+        $name =$_POST['name'];
+        $CategoriesModel->editCategory($name,$id);
+        header("Location: $redirect");
+    }
+
 }

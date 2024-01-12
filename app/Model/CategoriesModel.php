@@ -23,4 +23,8 @@ class CategoriesModel extends Crud
         $tablename = 'category';
         return $this->delete($tablename, $categoryId);
     }
+    public function editCategory($data,$categoryId){
+        $tablename = 'category';
+        return $this->update($tablename,$data, $categoryId);
+    }
 }

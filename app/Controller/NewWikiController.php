@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Controller;
-session_start();
+
 
 use App\Model\Crud;
 use App\Model\WikiModel;
