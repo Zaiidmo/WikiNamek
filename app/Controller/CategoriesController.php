@@ -39,8 +39,13 @@ class CategoriesController
     public function editCat(){
         $redirect = URL_DIR . 'categories';
         $CategoriesModel = new CategoriesModel();
-        $id = $_GET['id'];
-        $name =$_POST['name'];
+        // var_dump($_POST);die;
+        $id = $_POST['id'];
+        unset($_POST['id']);
+        $data = $_POST['name'];
+        $name = [
+            'name' => $data,
+        ];
         $CategoriesModel->editCategory($name,$id);
         header("Location: $redirect");
     }
