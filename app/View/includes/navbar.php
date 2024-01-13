@@ -36,8 +36,8 @@
                         </defs>
                     </svg>
                     <div class="hidden md:flex flex-col leading-7 ">
-                        <span class="self-center tracking-widest sm:text-l md:text-l lg:text-l font-salsa font-semibold whitespace-nowrap dark:text-white">WikiNamek</span>
-                        <span class="self-center sm:text-sss md:text-sss lg:text-sss font-poppinm whitespace-nowrap dark:text-white">Your Gateway to infinit insights</span>
+                        <span class="self-center tracking-widest sm:text-l md:text-l lg:text-l font-salsa font-semibold whitespace-nowrap text-white">WikiNamek</span>
+                        <span class="self-center sm:text-sss md:text-sss lg:text-sss font-poppinm whitespace-nowrap text-white">Your Gateway to infinit insights</span>
                     </div>
                 </a>
             </div>
