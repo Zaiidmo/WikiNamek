@@ -20,9 +20,18 @@ class Statistics extends Crud
     {
         return ['totalReaders' => $this->show_stats('user', 'WHERE role = "reader"')];
     }
+
+    public function getTotalAdmins()
+    {
+        return ['totalAdmins' => $this->show_stats('user', 'WHERE role = "admin"')];
+    }
     public function getTotalWikis()
     {
         return ['totalWikis' => $this->show_stats('wiki')];
+    }
+    public function getPendingWikis()
+    {
+        return ['pendingWikis' => $this->show_stats('wiki', 'WHERE status = "pending"')];
     }
     public function getApprovedWikis()
     {
