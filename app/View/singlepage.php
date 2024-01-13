@@ -22,13 +22,19 @@
             <div class="font-light text-center sm:text-lg dark:text-gray-400">
                 <h2 class="mb-8 text-4xl tracking-wider font-salsa font-extrabold text-gray-900 dark:text-white"><?= $wiki['title'] ?></h2>
                 <p class="text-black dark:text-gray-500 "><?= $wiki['description'] ?></p>
-                <p class="mt-8 text-left text-gray-500 dark:text-gray-700 mb-4">by : <?= $wiki['author_id'] ?> <br> at <?= $wiki['creation_date'] ?><p>
+                <p class="mt-8 text-left text-gray-500 dark:text-gray-700 mb-4">by : <?= $wiki['author_id'] ?> <br> at <?= $wiki['creation_date'] ?>
+                <p>
             </div>
             <div class="mt-2 self-center">
-                <img class=" rounded-lg" src="public/assets/uploads/<?= $wiki['picture'] ?>" alt="<?= $wiki['title']?>">
+                <img class=" rounded-lg" src="public/assets/uploads/<?= $wiki['picture'] ?>" alt="<?= $wiki['title'] ?>">
             </div>
             <div class="mt-2 text-black dark:text-gray-300">
                 <p class="mb-4"><?= $wiki['content'] ?>
+            </div>
+            <div class="flex flex-row">
+                <?php foreach ($tags as $tag) : ?>
+                    <span class="bg-gray-100 text-gray-800  text-xs font-medium me-2 px-2.5 py-2 rounded-full dark:bg-gray-700 dark:text-white border border-gray-500"><?= $tag['name'] ?></span>
+                <?php endforeach ?>
             </div>
         </div>
     </section>

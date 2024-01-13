@@ -52,7 +52,6 @@ class WikiModel extends Crud
                 $addWikiTagStmt->bindParam(':wiki_id', $wikiId);
                 $addWikiTagStmt->execute();
             }
-
         } catch (PDOException $e) {
             echo "Error inserting wiki with tags: " . $e->getMessage();
         }
@@ -162,6 +161,19 @@ class WikiModel extends Crud
         } catch (PDOException $e) {
             echo "Error fetching records: " . $e->getMessage();
             return [];
+        }
+    }
+    public function WikiTags($id)
+    {
+        try {
+            $query = "SELECT p.tag_id, p.wiki_id, t.name FROM wiki_tag p
+            INNER JOIN tags t ON p.tag_id = t.id
+            WHERE p.wiki_id = $id";
+            $stmt = $this->pdo->query($query);
+            $tags = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            return $tags;
+        } catch (PDOException $e) {
+            die("ERROR: Could not execute $query. " . $e->getMessage());
         }
     }
 }
