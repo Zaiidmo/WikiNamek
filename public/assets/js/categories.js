@@ -21,3 +21,10 @@ document.querySelectorAll('.editCategory').forEach(function (button) {
         
     });
 });
+//Creation Modal
+document.getElementById('Create_Category').addEventListener('click',function(){
+    document.getElementById('Add_new_category').classList.toggle('hidden');
+})
+document.getElementById('closeCreation').addEventListener('click', function () {
+    document.getElementById('Add_new_category').classList.add('hidden');
+})

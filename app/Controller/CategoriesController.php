@@ -29,14 +29,16 @@ class CategoriesController
             Controller::getView("unautorized");
         }
     }
-    public function deleteCat(){
+    public function deleteCat()
+    {
         $redirect = URL_DIR . 'categories';
         $CategoriesModel = new CategoriesModel();
         $id = $_GET['id'];
         $CategoriesModel->deleteCategory($id);
         header("Location: $redirect");
     }
-    public function editCat(){
+    public function editCat()
+    {
         $redirect = URL_DIR . 'categories';
         $CategoriesModel = new CategoriesModel();
         // var_dump($_POST);die;
@@ -46,8 +48,18 @@ class CategoriesController
         $name = [
             'name' => $data,
         ];
-        $CategoriesModel->editCategory($name,$id);
+        $CategoriesModel->editCategory($name, $id);
         header("Location: $redirect");
     }
 
+    public function createNew()
+    {
+        $redirect = URL_DIR . 'categories';
+        $CategoriesModel = new CategoriesModel();
+        $name = [
+            'name' => $_POST['name']
+        ];
+        $CategoriesModel->CreateNew($name);
+        header("Location: $redirect");
+    }
 }

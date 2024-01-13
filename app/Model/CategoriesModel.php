@@ -27,4 +27,8 @@ class CategoriesModel extends Crud
         $tablename = 'category';
         return $this->update($tablename,$data, $categoryId);
     }
+    public function CreateNew($data){
+        $tablename = 'category';
+        return $this->create($tablename, $data);
+    }
 }

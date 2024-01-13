@@ -15,9 +15,10 @@
     <!-- Dashboard Content -->
 
     <main id="main" class="pt-36 px-28">
-        <h2 class=" text-4xl font-semibold text-center font-poppins tracking-widest text-gray-700 dark:text-gray-200">
+        <h2 class=" text-4xl mb-8 font-semibold text-center font-poppins tracking-widest text-gray-700 dark:text-gray-200">
             <span class="text-black dark:text-gray-400">Available</span> Categories
         </h2>
+        <button type="button" id="Create_Category" class="text-white bg-gray-700 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">Create a Category</button>
         <div class="w-full overflow-hidden rounded-lg shadow-xs">
             <div class="w-full overflow-x-auto">
                 <table class="w-full my-8 whitespace-no-wrap">
@@ -91,8 +92,32 @@
             </div>
 
         </div>
+        <div id="Add_new_category" class=" hidden overflow-y-auto overflow-x-hidden fixed w-1/2 rounded-xl border top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 z-100 justify-center items-center dark:bg-gray-700 bg-gray-700 overflow-auto bg-opacity-70">
+        <div aria-hidden="true" class="flex flex-col justify-center px-2 py-12 lg:px-2 text-gray-900 dark:text-white">
+            <div class="sm:w-full sm:max-w-sm flex self-center justify-between items-center">
+                <h2 class="self-center font-poppins text-center text-4xl font-bold leading-9 tracking-wider">Create a new Category</h2>
+                <span id="closeCreation" class="close cursor-pointer">&times;</span>
+            </div>
+
+            <div class="mt-10 self-center w-1/2">
+                <form action="Categories/createNew" method="POST" enctype="multipart/form-data">
+                    <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">
+                        <div class="sm:col-span-2">
+                            <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">name <span class="text-red-500 text-l"> *</span></label>
+                            <input type="text" name="name" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Category Name" required="">
+                        </div>
+                        <button type="submit" class="px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-gray-700 rounded-lg focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-900 hover:bg-gray-800">
+                            P O S T
+                        </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
     </main>
 
+    <!-- Creation Modal -->
+    
     <!-- Footer -->
     <?php include "../app/View/includes/footer.php"; ?>
 
