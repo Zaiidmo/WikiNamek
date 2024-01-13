@@ -234,7 +234,7 @@
                         <span class="flex-1 ms-3 whitespace-nowrap">Become an Author</span>
                     </a>
                 </li>
-            <?php else : ?>
+            <?php elseif(!isset($_SESSION['role'])) : ?>
                 <li>
                     <a href="signup" onclick=confirmUpdate() class="flex items-center p-2 text--900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
