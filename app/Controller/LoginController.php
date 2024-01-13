@@ -4,8 +4,6 @@ namespace App\Controller;
 
 use App\Model\UserModel;
 
-session_start();
-
 class LoginController
 {
     public function index()
