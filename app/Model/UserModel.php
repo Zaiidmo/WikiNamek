@@ -99,4 +99,8 @@ class UserModel extends Crud
         $tableName = 'user';
         $this->delete($tableName, $id);
     }
+    public function makeAdmin($update, $id){
+        $table = 'user';
+        return $this->update($table, $update, $id);
+    }
 }

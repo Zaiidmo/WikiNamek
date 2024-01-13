@@ -38,4 +38,14 @@ class UsersController
         $userModel->deleteUser($id);
         header("Location: $redirect");
     }
+    public function makeAdmin(){
+        $redirect = URL_DIR . 'users';
+        $userId = $_GET["id"];
+        $userModel=new UserModel();
+        $update = [
+            'role' => 'admin',
+        ];
+        $userModel->makeAdmin($update, $userId);
+        header("Location:$redirect");
+    }
 }
