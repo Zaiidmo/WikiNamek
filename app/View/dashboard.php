@@ -61,7 +61,7 @@
                             <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
                                 Authors </p>
                             <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
-                                Statistics </p>
+                            <?= $authors ?> </p>
                         </div>
                     </div>
                     <!-- Card -->
@@ -78,7 +78,7 @@
                                 Readers
                             </p>
                             <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
-                                Statistics </p>
+                            <?= $readers ?> </p>
                         </div>
                     </div>
                     <!-- Card -->
@@ -95,7 +95,7 @@
                                 Posted Wikis
                             </p>
                             <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
-                                Statistics </p>
+                            <?= $wikis ?> </p>
                         </div>
 
                     </div>
@@ -113,7 +113,7 @@
                                 Approved
                             </p>
                             <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
-                                Statistics </p>
+                            <?= $approved ?> </p>
                         </div>
                     </div>
                     <!-- Card -->
@@ -130,7 +130,7 @@
                                 Denied
                             </p>
                             <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
-                                Statistics </p>
+                            <?= $denied ?> </p>
                         </div>
                     </div>
                     <!-- Card -->

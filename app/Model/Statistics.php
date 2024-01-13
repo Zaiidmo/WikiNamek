@@ -13,12 +13,12 @@ class Statistics extends Crud
 
     public function getTotalAuthors()
     {
-        return ['totalAuthors' => $this->show_stats('user', 'WHERE status = "author"')];
+        return ['totalAuthors' => $this->show_stats('user', 'WHERE role = "author"')];
     }
 
     public function getTotalReaders()
     {
-        return ['totalReaders' => $this->show_stats('user', 'WHERE status = "reader"')];
+        return ['totalReaders' => $this->show_stats('user', 'WHERE role = "reader"')];
     }
     public function getTotalWikis()
     {
