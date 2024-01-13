@@ -147,7 +147,7 @@
                                 Categories
                             </p>
                             <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
-                                Statistics </p>
+                            <?= $category ?> </p>
                         </div>
 
                     </div>
@@ -163,7 +163,7 @@
                                 Tags
                             </p>
                             <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
-                                Statistics </p>
+                            <?= $tags ?>  </p>
                         </div>
                     </div>
                     <!-- Card -->

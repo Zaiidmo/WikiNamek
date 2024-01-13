@@ -32,6 +32,12 @@ class Statistics extends Crud
     {
         return ['deniedWikis' => $this->show_stats('wiki', 'WHERE status = "denied"')];
     }
+    public function getCatefories(){
+        return ['categories' => $this->show_stats('category')];
+    }
+    public function getTags(){
+        return ['tags' => $this->show_stats('tags')];
+    }
 
 
 }
