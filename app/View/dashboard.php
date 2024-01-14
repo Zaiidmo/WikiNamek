@@ -21,17 +21,17 @@
     include "../app/View/includes/navbar.php";
     ?>
     <!-- Dashboard Content -->
-    <main id="main" class="px-28 ">
-        <div class="pt-24 h-screen overflow-y-auto">
-            <div class="container px-6 mx-auto grid">
-                <h4 class="ml-16 mt-6 font-semibold font-poppins tracking-widest text-gray-700 dark:text-gray-200">
+    <main id="main" class="px-16 md:px-28 ">
+        <div class="pt-24 md:h-screen overflow-y-auto">
+            <div class="container  md:px-6 md:mx-auto grid">
+                <h4 class="md:ml-16 md:mt-6 font-semibold font-poppins tracking-widest text-gray-700 dark:text-gray-200">
                     DASHBOARD
                 </h4>
-                <p class="ml-16 mb-6 text-gray-600 dark:text-gray-700">
+                <p class="md:ml-16 mb-6 text-gray-600 dark:text-gray-700">
                     Admin/Dashboard
                 </p>
                 <!-- Cards -->
-                <div class="grid gap-10 mb-8 md:grid-cols-2 xl:grid-cols-4">
+                <div class="grid gap-10 mb-8  grid-cols-1 md:grid-cols-2 xl:grid-cols-4">
                     <!-- Card -->
                     <div id="users" class="flex items-center p-4 bg-white rounded-2xl shadow-xs dark:bg-gray-800">
                         <div class="p-3 mr-4 rounded-full">

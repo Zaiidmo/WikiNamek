@@ -22,7 +22,7 @@
     include "../app/View/includes/navbar.php";
     ?>
     <!-- Main Content -->
-    <main class="bg-white dark:bg-gray-900">
+    <main class="bg-white dark:bg-gray-900 mx-4 mb-8">
         <div class="flex flex-col justify-center mx-auto max-w-2xl lg:py-16">
             <h2 class="pt-28 pb-12 text-4xl font-semibold text-center font-poppins tracking-widest text-gray-700 dark:text-gray-200">
                 Post a New<span class="text-black dark:text-gray-400"> Wikis</span>

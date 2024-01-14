@@ -22,7 +22,7 @@
     ?>
     <!-- Dashboard Content -->
 
-    <main id="main" class="pt-36 px-28">
+    <main id="main" class="pt-36 px-16 md:px-28">
         <h2 class=" text-4xl mb-8 font-semibold text-center font-poppins tracking-widest text-gray-700 dark:text-gray-200">
             <span class="text-black dark:text-gray-400">Available</span> Categories
         </h2>
@@ -34,9 +34,6 @@
                         <tr class="text-l font-semibold h-8 tracking-wide text-left  text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
                             <th class="px-4 py-3">Category Name</th>
                             <th class="px-4 py-3">N-- Of Wikis</th>
-                            <!-- <th class="px-4 py-3">Type</th> -->
-                            <!-- <th class="px-4 py-3">Purshased Tickets</th> -->
-                            <!-- <th class="px-4 py-3"></th> -->
                             <th class="px-4 py-3">Actions</th>
                         </tr>
                     </thead>

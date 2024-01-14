@@ -18,10 +18,10 @@
 
 <body class="font-poppins bg-gray-300  dark:bg-gray-800">
     <?php include "../app/View/includes/navbar.php"; ?>
-    <main id="main" class="h-screen">
+    <main id="main" class="h-full">
         <div id="profile-card" class="p-16 lg:pl-24">
 
-            <div class="p-8 bg-white rounded-lg  dark:bg-gray-900 shadow mt-24">
+            <div class="p-8 bg-white rounded-lg dark:bg-gray-900 shadow mt-24">
                 <div class="grid grid-cols-1 md:grid-cols-3">
                     <div class="grid grid-cols-2 lg:grid-cols-3 text-center order-last md:order-first mt-20 md:mt-0">
                         <div>
@@ -112,14 +112,14 @@
             </div>
         </div>
 
-        <div id="modification-modal" class="modification_modal hidden overflow-y-auto overflow-x-hidden fixed w-1/2 rounded-xl border top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 z-100 justify-center items-center dark:bg-gray-700 overflow-auto bg-opacity-50">
-            <div aria-hidden="true" class="flex flex-col justify-center px-2 py-12 lg:px-2 text-gray-900 dark:text-white">
+        <div id="modification-modal" class="modification_modal hidden overflow-y-auto overflow-x-hidden fixed md:w-1/2 rounded-xl border top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 z-100 justify-center items-center dark:bg-gray-700 overflow-auto bg-opacity-50 w-screen ">
+            <div aria-hidden="true" class="flex flex-col mx-2 justify-center px-2 py-12 lg:px-2 text-gray-900 p-4 dark:text-white">
                 <div class="sm:w-full sm:max-w-sm flex self-center justify-between items-center">
                     <h2 class="self-center font-poppins text-center text-4xl font-bold leading-9 tracking-wider">Edit Your Profile</h2>
                     <span id="closeedit" class="closeedit cursor-pointer">&times;</span>
                 </div>
 
-                <div class="mt-10 self-center w-1/2">
+                <div class="mt-10 w-full self-center md:w-1/2">
                     <form id="editform" class="space-y-6" action="Profile/editprofile" method="POST" enctype="multipart/form-data">
                         <input type="number" name="id" id="userid" class="hidden" value="<?= $_SESSION['id'] ?>">
                         <div>

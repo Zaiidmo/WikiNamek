@@ -22,11 +22,11 @@
     ?>
     <!-- Dashboard Content -->
 
-    <main id="main" class=" h-screen px-28 ">
+    <main id="main" class="md:h-screen md:px-28 px-16 ">
         <h2 class="pt-36 text-4xl font-semibold text-center font-poppins tracking-widest text-gray-700 dark:text-gray-200">
             <span class="text-black dark:text-gray-400">Shared</span> Wikis
         </h2>
-        <div class="w-full overflow-hidden rounded-lg shadow-xs">
+        <div class="w-full mb-4 overflow-hidden rounded-lg shadow-xs">
             <div class="w-full overflow-x-auto">
                 <table class=" mt-8  w-full whitespace-no-wrap">
                     <thead>

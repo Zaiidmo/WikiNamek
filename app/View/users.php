@@ -22,13 +22,13 @@
     ?>
     <!-- Dashboard Content -->
 
-    <main id="main" class="pt-36 h-screen px-28">
+    <main id="main" class="pt-36 h-screen px-16 md:px-28">
         <h2 class=" text-4xl font-semibold text-center font-poppins tracking-widest text-gray-700 dark:text-gray-200">
             <span class="text-black dark:text-gray-400">Registered</span> Users
         </h2>
         <div class="w-full overflow-hidden rounded-lg shadow-xs">
             <div class="w-full overflow-x-auto">
-                <table class=" mt-8  w-full whitespace-no-wrap">
+                <table class=" mt-8 rounded-xl w-full whitespace-no-wrap">
                     <thead>
                         <tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
                             <th class="px-4 py-3">User Name</th>

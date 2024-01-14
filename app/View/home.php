@@ -23,7 +23,7 @@
     <!-- Hero Section -->
     <section class="bg-gray-300 dark:bg-gray-900 pt-24">
         <div class="grid max-w-screen-xl px-4 py-8 mx-auto justify-center items-center align-middle lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
-            <div class="lg:mt-0 md:hidden lg:col-span-5 lg:flex">
+            <div class="w-fit place-self-center lg:mt-0 md:hidden lg:col-span-5 lg:flex">
                 <img src="<?= URL_DIR ?>public/assets/images/Hero_image.jpg" alt="wikiNamek">
             </div>
             <div class="mr-auto place-self-center text-center lg:col-span-7">
