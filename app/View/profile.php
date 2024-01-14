@@ -16,9 +16,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Salsa&display=swap" rel="stylesheet">
 </head>
 
-<body class="font-poppins bg-gray-300 dark:bg-gray-800">
+<body class="font-poppins bg-gray-300  dark:bg-gray-800">
     <?php include "../app/View/includes/navbar.php"; ?>
-    <main id="main" class="">
+    <main id="main" class="h-screen">
         <div id="profile-card" class="p-16 lg:pl-24">
 
             <div class="p-8 bg-white rounded-lg  dark:bg-gray-900 shadow mt-24">
@@ -39,7 +39,7 @@
                     </div>
                     <div class="relative justify-center">
                         <div class="w-48 h-48 bg-indigo-100 mx-auto rounded-full shadow-2xl absolute inset-x-0 top-0 -mt-24 flex items-center justify-center dark:text-white text-indigo-500">
-                            <img class="rounded-full" src=<?= URL_DIR . "public/assets/uploads/" . $_SESSION['profile_picture'] ?> alt="profile">
+                            <img class="rounded-full " src=<?= URL_DIR . "public/assets/uploads/" . $_SESSION['profile_picture'] ?> alt="profile">
                         </div>
                     </div>
                     <div class="lg:space-x-8 py-1 flex justify-center lg:justify-between mt-32 md:mt-0 md:justify-center">
@@ -48,6 +48,18 @@
                         </button>
                     </div>
                 </div>
+                <?php
+                $errors = $_SESSION['errors'] ?? [];
+                unset($_SESSION['errors']);
+                if (!empty($errors)) {
+                    foreach ($errors as $error) {
+                        // echo '<div class="mt-10 border border-red-500 text-red-500 px-4 py-3 rounded relative text-center" role="alert">';
+                        echo "<span class='block text-red-500 sm:inline'><br>
+            $error</span>";
+                        // echo '</div>';
+                    }
+                }
+                ?>
                 <div class="mt-20 text-center ">
                     <h1 class="text-4xl font-medium dark:text-white text-gray-700">
                         <?= $_SESSION['user_name'] ?>
@@ -113,18 +125,18 @@
                         <div>
                             <label for="UserName" class="block text-sm font-medium leading-6">New User Name</label>
                             <div class="mt-2">
-                                <input type="text" id="UserName" name="user_name" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light" placeholder="New User Name">
+                                <input type="text" id="UserName" name="user_name" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light" placeholder="New User Name" value="<?= $_SESSION['user_name'] ?>">
                             </div>
                         </div>
                         <div>
                             <label for="email" class="block text-sm font-medium leading-6">New email</label>
                             <div class="mt-2">
-                                <input type="text" id="email" name="email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light" placeholder="New email">
+                                <input type="text" id="email" name="email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light" placeholder="New email" value="<?= $_SESSION['email'] ?>">
                             </div>
                         </div>
                         <div>
                             <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
-                            <input type="password" name="password" id="password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="">
+                            <input type="password" name="password" id="password" placeholder="Password is required" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
                         </div>
                         <div>
                             <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="profile_picture">Upload profile picture</label>

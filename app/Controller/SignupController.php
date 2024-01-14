@@ -41,28 +41,30 @@ class SignupController
             if (count($errors) > 0) {
                 // Display validation errors to the user
                 $_SESSION['errors'] = $errors;
-
                 // Redirect back to the signup page
+                $redirect = URL_DIR . 'signup';
+                header("Location: $redirect");
                 exit;
-            }
-
-            // If form validation passes, proceed with creating the user
-            $userData = [
-                'user_name' => $fullname,
-                'email' => $email,
-                'role' => $role,
-                'password' => password_hash($password, PASSWORD_DEFAULT)
-            ];
-
-            $user = new UserModel();
-            $redirect = URL_DIR . 'login';
-            $userCreated = $user->createUser($userData);
-            if ($userCreated) {
-                $_SESSION['success'] = "User created successfully";
-                header("Location: $redirect");
             } else {
-                $_SESSION['error'] = "Error creating user";
-                header("Location: $redirect");
+
+                // If form validation passes, proceed with creating the user
+                $userData = [
+                    'user_name' => $fullname,
+                    'email' => $email,
+                    'role' => $role,
+                    'password' => password_hash($password, PASSWORD_DEFAULT)
+                ];
+
+                $user = new UserModel();
+                $redirect = URL_DIR . 'login';
+                $userCreated = $user->createUser($userData);
+                if ($userCreated) {
+                    $_SESSION['success'] = "User created successfully";
+                    header("Location: $redirect");
+                } else {
+                    $_SESSION['error'] = "Error creating user";
+                    header("Location: $redirect");
+                }
             }
         }
     }

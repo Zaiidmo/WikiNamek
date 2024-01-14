@@ -13,7 +13,7 @@ class ProfileController
         if (session_status() == PHP_SESSION_NONE) {
             session_start();
         }
-        if (isset($_SESSION['id']) && ($_SESSION['role'] == 'author' || $_SESSION['role'] == 'admin') ) {
+        if (isset($_SESSION['id']) && ($_SESSION['role'] == 'author' || $_SESSION['role'] == 'admin')) {
             $userModel = new UserModel();
             $data = $userModel->MyWikis($_SESSION['id']);
             $category = new WikiModel();
@@ -32,7 +32,7 @@ class ProfileController
     public function editprofile()
     {
         $userModel = new UserModel();
-
+        $errors = [];
         // Initialize the $data array
         $data = [];
 
@@ -47,8 +47,12 @@ class ProfileController
             $originalExtension = strtolower(pathinfo($profile_picture['name'], PATHINFO_EXTENSION));
 
             if (!in_array($originalExtension, $allowedExtensions)) {
-                echo 'Invalid file extension.';
-                return;
+                $errors[] = 'Invalid file extension.';
+                $_SESSION['errors'] = $errors;
+                // Redirect back to the profile page
+                $redirect = URL_DIR . 'profile';
+                header("Location: $redirect");
+                exit;
             }
 
             $targetFileName = $uploadDirectory . $filename . '.' . $originalExtension;
@@ -56,28 +60,43 @@ class ProfileController
             if (move_uploaded_file($profile_picture['tmp_name'], $targetFileName)) {
                 $data['profile_picture'] = $filename . '.' . $originalExtension;
             } else {
-                echo 'File upload failed. Please try again later.';
-                return;
+                $errors[] = 'File upload failed. Please try again later.';
+                $_SESSION['errors'] = $errors;
+                // Redirect back to the signup page
+                $redirect = URL_DIR . 'profile';
+                header("Location: $redirect");
+                exit;
+    
             }
         }
 
-        // Check if the 'id' input is set and not empty
-        $id = $_POST['id'];
-        unset($_POST['id']);
-        $data['user_name'] = $_POST['user_name'];
-        $data['email'] = $_POST['email'];
-        // Hash the password if provided
-        if (!empty($_POST['password'])) {
-            $data['password'] = password_hash($_POST['password'], PASSWORD_DEFAULT);
-        }
-        // var_dump($data);
+        if (count($errors) > 0) {
+            // Display validation errors to the user
+            $_SESSION['errors'] = $errors;
+            // Redirect back to the signup page
+            $redirect = URL_DIR . 'profile';
+            header("Location: $redirect");
+            exit;
+        } else {
 
-        $userModel->update_profile($data, $id);
-        $redirect = URL_DIR . 'profile';
-        $_SESSION['user_name'] = $data['user_name'];
-        $_SESSION['email'] = $data['email'];
-        $_SESSION['profile_picture'] = $data['profile_picture'];
-        header("Location: $redirect");
+            // Check if the 'id' input is set and not empty
+            $id = $_POST['id'];
+            unset($_POST['id']);
+            $data['user_name'] = $_POST['user_name'];
+            $data['email'] = $_POST['email'];
+            // Hash the password if provided
+            if (!empty($_POST['password'])) {
+                $data['password'] = password_hash($_POST['password'], PASSWORD_DEFAULT);
+            }
+            // var_dump($data);
+
+            $userModel->update_profile($data, $id);
+            $redirect = URL_DIR . 'profile';
+            $_SESSION['user_name'] = $data['user_name'];
+            $_SESSION['email'] = $data['email'];
+            $_SESSION['profile_picture'] = $data['profile_picture'];
+            header("Location: $redirect");
+        }
     }
 
     public function edit_wiki()
@@ -118,5 +137,4 @@ class ProfileController
 
         header('Location: ../profile');
     }
-
 }
