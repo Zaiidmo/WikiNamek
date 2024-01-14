@@ -1,6 +1,6 @@
 # Wikinamek
 
-Wikinamek is an open-source web application that facilitates collaborative wiki creation and management. This user-friendly platform empowers users to contribute and share information on various topics, fostering a dynamic and community-driven knowledge base.
+Welcome to WikiNamek, an innovative content management application crafted to provide an outstanding user experience in the creation, management, and sharing of wikis. With a sophisticated content management system seamlessly integrated with a user-friendly front office, WikiNamek establishes itself as a collaborative platform where users can collaborate effortlessly in a simple yet engaging manner.
 
 ## Installation
 
